@@ -2,36 +2,72 @@
 <html>
 	<head>
 		<script>
-			function loadXMLDoc(filename)
-			{
-				  {
-			  xhttp = new XMLHttpRequest();
-			  }
-			xhttp.open("GET", filename, false);
-			try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
-			xhttp.send("");
-			return xhttp.responseXML;
-			}
+      function displayResult(witness) {
 
-			function displayResult(witness)
-			{
-			xml = loadXMLDoc("chapter4.xml");
-			xsl = loadXMLDoc("chapter4.xsl");
-      // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
-        var chater4 = document.getElementById("chapter4");
-        while (chapter4.firstChild) {
-          chapter4.removeChild(chapter4.firstChild);
+    var target = document.getElementById("chapter4")
+
+    xmlFile = fetch("chapter4.xml")
+      .then(res => res.text())
+      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+
+    xslFile = fetch("chapter4.xsl")
+      .then(res => res.text())
+      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+
+    Promise.all([xmlFile, xslFile])
+      .then(files => {
+
+        xml = files[0]
+        xsl = files[1]
+
+        // code for normal browsers
+        var xsltProcessor = new XSLTProcessor()
+        xsltProcessor.importStylesheet(xsl)
+        xsltProcessor.setParameter(null, "witness", witness)
+        var resultDocument = xsltProcessor.transformToFragment(xml, target.ownerDocument)
+
+        while (target.firstChild) {
+          target.removeChild(target.firstChild);
         }
-			// code for Chrome, Firefox, Opera, etc.
-			  {
-			var xsltProcessor = new XSLTProcessor ();
-			xsltProcessor.importStylesheet(xsl);
+        //console.log(resultDocument)
+        target.appendChild(resultDocument)
 
-			xsltProcessor.setParameter(null, "witness", witness);
-  			resultDocument = xsltProcessor.transformToFragment(xml, document);
-  			chapter4.appendChild(resultDocument);
-			  }
-			}
+      })
+      .catch(err => {
+        console.log(err)
+        target.innerHTML = "<p>Cannot retrieve requested file</p>"
+      })
+  }
+			// function loadXMLDoc(filename)
+			// {
+			// 	  {
+			//   xhttp = new XMLHttpRequest();
+			//   }
+			// xhttp.open("GET", filename, false);
+			// try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+			// xhttp.send("");
+			// return xhttp.responseXML;
+			// }
+      //
+			// function displayResult(witness)
+			// {
+			// xml = loadXMLDoc("chapter4.xml");
+			// xsl = loadXMLDoc("chapter4.xsl");
+      // // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+      //   var chater4 = document.getElementById("chapter4");
+      //   while (chapter4.firstChild) {
+      //     chapter4.removeChild(chapter4.firstChild);
+      //   }
+			// // code for Chrome, Firefox, Opera, etc.
+			//   {
+			// var xsltProcessor = new XSLTProcessor ();
+			// xsltProcessor.importStylesheet(xsl);
+      //
+			// xsltProcessor.setParameter(null, "witness", witness);
+  		// 	resultDocument = xsltProcessor.transformToFragment(xml, document);
+  		// 	chapter4.appendChild(resultDocument);
+			//   }
+			// }
 		</script>
     <meta charset="utf-8">
 	   </head>
