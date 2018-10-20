@@ -90,7 +90,14 @@
 		<strong>
 			<xsl:for-each select="tei:rdg">
 				<xsl:if test="(contains(@wit, $witness)) or (contains(@wit, $witnessgroup))" >
-					<xsl:value-of select="."/>
+					<xsl:choose>
+						<xsl:when test="rdg != ''">
+							<xsl:value-of select="."/>
+						</xsl:when>
+						<xsl:otherwise>
+							*
+						</xsl:otherwise>
+					</xsl:choose>
 				</xsl:if>
 			</xsl:for-each>
 		</strong>
