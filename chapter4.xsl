@@ -85,6 +85,13 @@
 		</p>
 	</xsl:template>
 
+<!-- Template pages -->
+<xsl:template match="tei:pb">
+	<xsl:if test="contains(@wit, $witness)">
+		[<xsl:value-of select="@n"/>]
+	</xsl:if>
+</xsl:template>
+
 <!-- Template Apparat -->
 	<xsl:template match="tei:app">
 		<xsl:for-each select="tei:rdg">
