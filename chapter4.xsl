@@ -87,20 +87,44 @@
 
 <!-- Template Apparat -->
 	<xsl:template match="tei:app">
-		<strong>
-			<xsl:for-each select="tei:rdg">
-				<xsl:if test="(contains(@wit, $witness)) or (contains(@wit, $witnessgroup))" >
-					<xsl:choose>
-						<xsl:when test="text() != ' '">
-							<xsl:value-of select="."/>
-						</xsl:when>
-						<xsl:otherwise>
-								*
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:if>
-			</xsl:for-each>
-		</strong>
-	</xsl:template>
+		<xsl:for-each select="tei:rdg">
 
+			<span class="tooltip">
+
+				<strong>
+
+					<xsl:if test="(contains(@wit, $witness)) or (contains(@wit, $witnessgroup))" >
+						<xsl:choose>
+							<xsl:when test="text() != ' '">
+								<xsl:value-of select="."/>
+							</xsl:when>
+							<xsl:otherwise>
+								*
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:if>
+				</strong>
+
+				<span class="tooltiptext" style="direction:ltr">
+
+					<xsl:for-each select="../tei:rdg">
+						<xsl:if test="not((contains(@wit, $witness)) or (contains(@wit, $witnessgroup)))">
+							<xsl:choose>
+								<xsl:when test="text() != ' '">
+									<xsl:value-of select="./@wit"/>:
+									<xsl:value-of select="."/>
+								</xsl:when>
+								<xsl:otherwise>
+										<xsl:value-of select="./@wit"/>:
+										om.
+								</xsl:otherwise>
+							</xsl:choose>
+						 </xsl:if>
+					 </xsl:for-each>
+				</span>
+
+			</span>
+
+		</xsl:for-each>
+	</xsl:template>
 </xsl:transform>
