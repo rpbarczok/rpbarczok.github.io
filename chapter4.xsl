@@ -10,7 +10,7 @@
 	<xsl:param name="witness" />
 
 	<xsl:variable name="witnessgroup">
-		<xsl:apply-templates select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness"/>
+		<xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness[@xml:id=$witness]/../@xml:id"/>
 	</xsl:variable>
 
 	<!-- Template 1: Gesamtdokument -->
@@ -61,16 +61,6 @@
 			</div>
 		</xsl:template>
 
-
-	<!-- Template: Variable witnessgroup -->
-	<xsl:template match="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
-			<xsl:for-each select=".">
-				<xsl:if test="$witness = @xml:id">
-					<xsl:value-of select="../@xml:id"/>
-				</xsl:if>
-			</xsl:for-each>
-	</xsl:template>
-
 	<!-- Template: Überschriften -->
 	<xsl:template match="tei:head">
 		<p style="color:red;">
@@ -92,11 +82,17 @@
 	</xsl:if>
 </xsl:template>
 
+<!-- Template del -->
+<xsl:template match="tei:del">
+	<del><xsl:value-of select="."/></del>
+</xsl:template>
+
 <!-- Template Apparat -->
 	<xsl:template match="tei:app">
 		<xsl:for-each select="tei:rdg">
 
-			<span class="tooltip">
+			<!-- onclick="" necessary for iOS, so iPhones use "hover" instead of "click" handler -->
+			<span class="tooltip" onclick="">
 
 				<strong>
 
@@ -134,4 +130,5 @@
 
 		</xsl:for-each>
 	</xsl:template>
+
 </xsl:transform>
