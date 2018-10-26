@@ -82,7 +82,7 @@
 	</xsl:if>
 </xsl:template>
 
-<!-- Template del -->
+<!-- Template rdg -->
 <xsl:template match="tei:del">
 	<del><xsl:value-of select="."/></del>
 </xsl:template>
@@ -99,7 +99,9 @@
 					<xsl:if test="(contains(@wit, $witness)) or (contains(@wit, $witnessgroup))" >
 						<xsl:choose>
 							<xsl:when test="text() != ' '">
-								<xsl:value-of select="."/>
+
+								<xsl:apply-templates select="node()"/>
+
 							</xsl:when>
 							<xsl:otherwise>
 								*
@@ -115,11 +117,13 @@
 							<xsl:choose>
 								<xsl:when test="text() != ' '">
 									<xsl:value-of select="./@wit"/>:
-									<xsl:value-of select="."/>
+									<xsl:apply-templates select="node()"/>
+									<br/>
 								</xsl:when>
 								<xsl:otherwise>
 										<xsl:value-of select="./@wit"/>:
 										om.
+									<br/>
 								</xsl:otherwise>
 							</xsl:choose>
 						 </xsl:if>
@@ -130,5 +134,6 @@
 
 		</xsl:for-each>
 	</xsl:template>
+
 
 </xsl:transform>
