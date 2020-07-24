@@ -16,9 +16,9 @@
 
   <xsl:param name="nrwitness" select="concat('#', $witness)"/>
 
-  <xsl:param name="fontstyle" select="concat('direction: rtl; font-size:2em; font-family:', $apos, $font, $apos, ';')"/>
+  <xsl:param name="fontstyle" select="concat('direction: rtl; font-size:2em; font-family:', $font, ';')"/>
 
-  <xsl:param name="fontstyle2" select="concat('direction: ltr; font-size:2em; font-family:', $apos, $font, $apos, ';')"/>
+  <xsl:param name="fontstyle2" select="concat('direction: ltr; font-size:2em; font-family:', $font, ';')"/>
 
   <xsl:param name="apos">'</xsl:param>
 
