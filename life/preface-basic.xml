@@ -122,7 +122,7 @@
    <head>
     
     <app>
-     <lem wit="#M #B ">ܥܠ ܚܝܠܗ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ</lem>
+     <lem wit="#M #B #Al">ܥܠ ܚܝܠܗ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ</lem>
      <rdg wit="#W" type="addition" cause="gap_in_vorlage">ܥܠ ܚܝܠܗ̇ ܕܬܠܝܘܬܐ ܡܫܒܚܬܐ ܣܓܝܕܬ ܡܢ ܟܠ</rdg>
      <rdg wit="#V1" type="omission" cause="illegible">
       <gap reason="illegible" quantity="0.5" unit="line"/>  
@@ -143,14 +143,14 @@
     </app>
     
     <app>
-     <lem wit="#V1 #M #B ">ܬܫܥܝܬܐ ܕܕܘܒܪ̈ܘܗܝ</lem>
+     <lem wit="#V1 #M #B #Al">ܬܫܥܝܬܐ ܕܕܘܒܪ̈ܘܗܝ</lem>
      <rdg wit="#W" type="variation" cause="intentional">ܬܫܥܝܬ ܕܘܒܪ̈ܐܗܝ</rdg>
     </app>
 
     ܐܠܗ̈ܝܐ
     
     <app>
-     <lem wit="#V1 #M #W ">ܘܬܗܝܪ̈ܐ</lem>
+     <lem wit="#V1 #M #W #Al">ܘܬܗܝܪ̈ܐ</lem>
      <rdg wit="#B" type="omission"/>
     </app>
     
@@ -158,32 +158,32 @@
     
     <app>
      <lem wit="#V1">.</lem>
-     <rdg wit="#M #W #B" type="punctuation"/>
+     <rdg wit="#M #W #B #Al" type="punctuation"/>
     </app> 
     
     ܪܒܢ
     
     <app>
      <lem wit="#V1">ܘܡܪܝ</lem>
-     <rdg wit="#M #W #B" type="omission"/>
+     <rdg wit="#M #W #B #Al" type="omission"/>
     </app>
     
     ܝܘܣܦ
     
     <app>
-     <lem wit="#V1 #M #B"/>
+     <lem wit="#V1 #M #B #Al"/>
      <rdg wit="#W" type="punctuation">.</rdg>
     </app>
 
     <app>
-     <rdg wit="#M #W #B" type="addition">ܕܡܬܝܕܥ</rdg>
+     <rdg wit="#M #W #B #Al" type="addition">ܕܡܬܝܕܥ</rdg>
      <lem wit="#V1"/>
     </app>
 
     ܒܘܣܢܝܐ
 
     <app>
-     <lem wit="#V1 #M #W"/>
+     <lem wit="#V1 #M #W #Al"/>
      <rdg wit="#B" type="punctuation">.</rdg>
     </app>
      
@@ -192,14 +192,14 @@
     
     <app>
      <lem wit="#V1">ܫܡܐ ܕܩܪܝܬܗ</lem>
-     <rdg wit="#M #B" type="variation">ܫܡܗ̇ ܕܩܪܝܬܗ</rdg>
+     <rdg wit="#M #B #Al" type="variation">ܫܡܗ̇ ܕܩܪܝܬܗ</rdg>
      <rdg wit="#W" type="variation" cause="intetional">ܫܡ ܩܪܝܬܗ</rdg>
     </app>
 
     ܒܒܘܣܐ
     
    <app>
-    <lem wit="#V1 #M"/>
+    <lem wit="#V1 #M #Al"/>
     <rdg wit="#W #B" type="punctuation">.</rdg>
    </app>
     
@@ -207,29 +207,29 @@
     
     <app>
      <lem wit="#V1"/>
-     <rdg wit="#M #W #B" type="addition">ܒܡܠܬܐ ܦܫܝܛܬܐ</rdg>
+     <rdg wit="#M #W #B #Al" type="addition">ܒܡܠܬܐ ܦܫܝܛܬܐ</rdg>
     </app>
     
     <app>
-       <lem wit="#V1 #M #W">.</lem>
+       <lem wit="#V1 #M #W #Al">.</lem>
        <rdg wit="#B" type="punctuation">:</rdg>
     </app>
     ܠܝܘܚܢܢ ܕܟܠܕܘܢ
     
    <app>
-    <lem wit="#V1 #M"/>
+    <lem wit="#V1 #B #M #Al"/>
     <rdg wit="#W" type="punctuation">.</rdg>
    </app>
     
     ܬܠܡܝܕܗ
     
     <app>
-     <lem wit="#V1 #W">:</lem>
+     <lem wit="#V1 #W #Al">:</lem>
      <rdg wit="#M #B" type="punctuation">.</rdg>
     </app>
     
     <app>
-     <lem wit="#M #W #B">ܡܪܢ </lem>
+     <lem wit="#M #W #B #Al">ܡܪܢ </lem>
      <rdg wit="#V1" type="omission" cause="illegible">
       <gap unit="word" quantity="1"/>
      </rdg>
@@ -239,7 +239,7 @@
     
     <app>
      <lem>ܘܚܝܠ ܡܚܝܠܘܬܝ </lem>
-     <rdg wit="#M #W #B " type="omission"/>
+     <rdg wit="#M #W #B #Al" type="omission"/>
      <rdg wit="#V1" type="omission" cause="illegible">
       ܘܚܝܠ
       <gap unit="0.5" quantity="word"/>
@@ -250,16 +250,16 @@
     ܒܪ̈ܚܡܝܟ
     
     <app>
-     <lem wit="#V1 #M #B"/>
+     <lem wit="#V1 #M #B #Al"/>
      <rdg wit="#W" type="addition">ܘܠܫܘܠܡ ܡܢܥܝܢܝ ܒܛܝܒܘܬܟ</rdg>
     </app>
     
     <app>
-     <lem wit="#M #W #B">
+     <lem wit="#M #W #B #Al">
       ܐܡܝܢ
       
       <app>
-       <lem wit="#W #M">:</lem>
+       <lem wit="#W #M #Al">:</lem>
        <rdg wit="#B" type="punctuation"/>
       </app>
      </lem>
@@ -272,22 +272,22 @@
    ܬܐܘܠܘܓܘܣ ܐ݇ܢܫ ܚܟܝܡ ܒܐ݇ܪ̈ܙܐ ܐܠܗ̈ܝܐ
    
    <app>
-    <lem wit="#V1 #M">.</lem>
-    <rdg wit="#W" type="punctuation"/>
+    <lem wit="#V1 #M #Al">.</lem>
+    <rdg wit="#W #B" type="punctuation"/>
    </app>
    
    ܦܣܩ ܘܫܪܪ ܘܚܬܡ ܒܡܠܬܗ
    
    <app>
     <lem wit="#V1">.</lem>
-    <rdg wit="#M #W #B" type="punctuation"/>
+    <rdg wit="#M #W #B #Al" type="punctuation"/>
    </app>
 
    ܕܥܒܕܐ ܗܘ̇ ܐܝܢܐ ܕܡܪܝܐ ܨܒܐ ܒܗ ܕܢܗܘܐ
    
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg wit="#M #W #B" type="punctuation">.</rdg>
+    <rdg wit="#M #W #B #Al" type="punctuation">.</rdg>
    </app>
    
    ܟܠܗ̇ ܒܪܝܬܐ ܡܫܡܫܐ ܠܫܘܡܠܝܗ. ܘܐܝܢܐ ܕܗܘ̤ ܡܪܝܐ ܠܐ ܨܒܐ ܒܗ 
@@ -296,7 +296,7 @@
     <lem wit="#V1">
      ܕܢܗܘܐ܉ ܟܠܗ̇ ܒܪܝܬܐ ܒܗܦܟܐ
     </lem>
-    <rdg wit="#W #B #M" type="word_order">ܕܢܗܘܐ ܒܗܦܟܐ ܟܠܗ̇ ܒܪܝܬܐ</rdg>
+    <rdg wit="#W #B #M #Al" type="word_order">ܕܢܗܘܐ ܒܗܦܟܐ ܟܠܗ̇ ܒܪܝܬܐ</rdg>
    </app>
    
    ܡܫܡܫܐ
@@ -306,7 +306,7 @@
    ܠܒܘܛܠܗ. ܘܐܢ ܗܕܐ ܫܪܝܪܐ ܐܟܡܐ ܕܫܪܝܪܐ.
    
    <app>
-    <lem wit="#V1 #M #B ">ܘܐܟܡܐ</lem>
+    <lem wit="#V1 #M #B #Al">ܘܐܟܡܐ</lem>
     <rdg wit="#W" type="variation">ܘܐܝܟ</rdg>
    </app>
    
@@ -314,25 +314,25 @@
    
    <app>
     <lem>ܡܪܐ ܟܠ</lem>
-    <rdg wit="#M #V1 #B #W" type="orthographic">ܡܪܟܠ</rdg>
+    <rdg wit="#M #V1 #B #W #Al" type="orthographic">ܡܪܟܠ</rdg>
    </app> 
     
    ܡܚܬܡ ܒܡܠܬܗ
     
    <app>
     <lem wit="#V1">.</lem>
-    <rdg wit="#M #W #B" type="punctuation"/>
+    <rdg wit="#M #W #B #Al" type="punctuation"/>
    </app>
     
    ܘܐܡܪ
 
    <app>
     <lem wit="#V1 #B">:</lem>
-    <rdg wit="#M #W" type="punctuation">.</rdg>
+    <rdg wit="#M #W #Al" type="punctuation">.</rdg>
    </app>
     
    <app>
-    <lem wit="#V1 #M">ܕܒܠܥܕ̈ܝ</lem>
+    <lem wit="#V1 #M #Al">ܕܒܠܥܕ̈ܝ</lem>
     <rdg wit="#W #B" type="variation">ܕܒܠܥܕܝ</rdg>
    </app>
     
@@ -340,7 +340,7 @@
     
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg wit="#M #W #B" type="punctuation">.</rdg>
+    <rdg wit="#M #W #B #Al" type="punctuation">.</rdg>
    </app>
    
    <pb n="2r" wit="#W" />
@@ -348,21 +348,21 @@
    ܠܐ ܡܕܝܢ ܐܝܬ ܕܡܨܐ 
    
    <app>
-    <rdg wit="#M #W #B" type="orthographic">ܕܠܘܩܒܠ</rdg>
+    <rdg wit="#M #W #B #Al" type="orthographic">ܕܠܘܩܒܠ</rdg>
     <lem wit="#V1">ܕܠܘ ܩܒܠ</lem>
    </app>
 
     ܗܕܐ ܢܩܘܡ ܘܢܬܚܪܐ. ܗܢܘ ܕܝܢ
     
    <app>
-    <lem wit="#V1 #M">.</lem>
+    <lem wit="#V1 #M #Al">.</lem>
     <rdg wit="#W #B" type="punctuation"/>
    </app>
     
     ܠܐ ܕܢܒܛܠ
    
    <app>
-    <lem wit="#V1 #M #B ">ܗܝ̇</lem>
+    <lem wit="#V1 #M #B #Al">ܗܝ̇</lem>
     <rdg wit="#W" type="variation">ܗܘ̇</rdg>
    </app>
    
@@ -370,28 +370,28 @@
    
    <app>
     <lem wit="#V1">ܒܗ̇</lem>
-    <rdg wit="#M #W #B " type="variation">ܒܗ</rdg>
+    <rdg wit="#M #W #B #Al" type="variation">ܒܗ</rdg>
    </app>
 
    ܡܪܝܐ ܡܫܟܚ ܐ݇ܢܫ ܘܐܦܢ ܣܓܝ ܡܨܛܢܥ
    
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg wit="#W #M #B" type="punctuation">:</rdg>
+    <rdg wit="#W #M #B #Al" type="punctuation">:</rdg>
    </app>
    
    ܘܠܐ ܕܠܥܒܕܐ ܢܝܬܐ ܗܝ̇ ܕܠܐ ܨܒܐ ܒܗ̇
    
    <app>
     <lem wit="#V1">܇</lem>
-    <rdg wit="#M #W #B" type="punctuation">.</rdg>
+    <rdg wit="#M #W #B #Al" type="punctuation">.</rdg>
    </app>
    
     ܘܐܦܢ ܣܓܝ ܬܘܒ
    
    <app>
     <lem wit="#V1">ܒܗܕܐ</lem>
-    <rdg wit="#M #W #B " type="omission"/>
+    <rdg wit="#M #W #B #Al" type="omission"/>
    </app>
 
    ܡܬܦܪܣ ܀
@@ -399,19 +399,19 @@
    <pb n="2r" wit="#V1" />
 
    <app>
-    <lem wit="#V1 #M #B ">ܘܗܐ</lem>
+    <lem wit="#V1 #M #B #Al">ܘܗܐ</lem>
     <rdg wit="#W" type="change">ܕܗܐ</rdg>
    </app>
    
    <app>
-    <lem wit="#V1 #W #B ">ܘܐܦ</lem>
+    <lem wit="#V1 #W #B #Al">ܘܐܦ</lem>
     <rdg wit="#M" type="omission">ܐܦ</rdg>
    </app>
 
    ܐܢܐ ܕܘܝܐ ܠܗܕܐ
    
    <app>
-    <lem wit="#V1 #M #W">܉</lem>
+    <lem wit="#V1 #M #W #Al">܉</lem>
     <rdg wit="#B" type="punctuation"/>
    </app>
    
@@ -419,7 +419,7 @@
    
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg wit="#M #B #W" type="punctuation">.</rdg>
+    <rdg wit="#M #B #W #Al" type="punctuation">.</rdg>
    </app>
       
    ܐܘ ܪܚܘܡܝ
@@ -429,13 +429,13 @@
    ܫܪܝܪܐ ܡܠܐ
    
    <app>
-    <lem wit="#V1 #M #W ">ܟܠ ܫܘܦܪ̈ܝܢ</lem>
+    <lem wit="#V1 #M #W #Al">ܟܠ ܫܘܦܪ̈ܝܢ</lem>
     <rdg wit="#B" type="extension">ܟܠ ܟܘܫܪ̈ܐ ܘܟܠ ܫܘܦܪ̈ܐ</rdg>
    </app>
    
    <app>
     <lem wit="#V1">܇</lem>
-    <rdg wit="#M #W" type="punctuation">.</rdg>
+    <rdg wit="#M #W #Al" type="punctuation">.</rdg>
     <rdg wit="#B" type="punctuation"/>
    </app>
    
@@ -444,7 +444,7 @@
    
    <app>
     <lem wit="#V1">܇</lem>
-    <rdg wit="#M" type="punctuation">.</rdg>
+    <rdg wit="#M #Al" type="punctuation">.</rdg>
     <rdg wit="#W #B" type="punctuation"/>
    </app>
    
@@ -452,7 +452,7 @@
    
    <app>
     <lem wit="#V1"/>
-    <rdg wit="#M #W #B" type="punctuation">
+    <rdg wit="#M #W #B #Al" type="punctuation">
      ܀
     </rdg>
    </app>
@@ -461,19 +461,19 @@
 
    <app>
     <lem wit="#V1">ܛܥܡܢܐ</lem>
-    <rdg wit="#M #W #B " type="variation">ܛܥܡܐ</rdg>
+    <rdg wit="#M #W #B #Al" type="variation">ܛܥܡܐ</rdg>
    </app>
     
    <app>
     <lem wit="#V1">܇</lem>
-    <rdg wit="#M #W" type="punctuation">.</rdg>
+    <rdg wit="#M #W #Al" type="punctuation">.</rdg>
     <rdg wit="#B" type="punctuation"/>
    </app>
     
    ܕܒܬܐܘܪ̈ܝܣ ܪ̈ܡܬܐ ܡܬܒܣܡ ܪܘܚܢܐܝܬ ܕܠܐ ܣܒܥܘ
      
    <app>
-    <lem wit="#V1 #M #W">.</lem>
+    <lem wit="#V1 #M #W" #Al>.</lem>
     <rdg wit="#B" type="punctuation"/>
    </app>
    
@@ -481,21 +481,21 @@
    
    <app>
     <lem wit="#V1">ܐܬܦܪܣܬ</lem>
-    <rdg wit="#M #W #B" type="variation">ܐܬܦܪܣ</rdg>
+    <rdg wit="#M #W #B #Al" type="variation">ܐܬܦܪܣ</rdg>
    </app>
    
    
    ܡܫܚܠܦܐܝܬ
    
    <app>
-    <lem wit="#V1 #M #W"/>
+    <lem wit="#V1 #M #W #Al"/>
     <rdg wit="#B" type="correction"><del>ܘܥܠܡܝܢܐ</del></rdg>
    </app>
      
    ܘܥܡܝܠܐܝܬ
    
    <app>
-    <lem wit="#V1 #B">:</lem>
+    <lem wit="#V1 #B #Al">:</lem>
     <rdg wit="#W" type="punctuation">܉</rdg>
     <rdg wit="#M" type="punctuation">.</rdg>
    </app>
@@ -504,17 +504,17 @@
     
     
    <app>
-    <lem wit="#V1 #W #B"/>
+    <lem wit="#V1 #W #B #Al"/>
     <rdg wit="#M" type="punctuation">.</rdg>
    </app>
 
    <app>
-    <lem wit="#V1 #M #W">ܕܬܐܓܘܪܬܐ</lem>
+    <lem wit="#V1 #M #W #Al">ܕܬܐܓܘܪܬܐ</lem>
     <rdg wit="#B" type="variation">ܒܬܐܓܘܪܬܐ</rdg>
    </app>
    
    <app>
-    <lem wit="#V1 #M #W ">ܗܕܐ</lem>
+    <lem wit="#V1 #M #W #Al">ܗܕܐ</lem>
     <rdg wit="#B" type="addition">ܕܗܕܐ</rdg>
    </app>
 
@@ -522,27 +522,27 @@
    
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg wit="#M #W #B" type="punctuation"/>
+    <rdg wit="#M #W #B #Al" type="punctuation"/>
    </app>
    
    
    ܕܠܐ ܐܣܒܝܗ̇ ܥܠ ܩܢܘܡܝ ܚܠܫܐ ܀ ܡܢ ܩܕܡ 
    
    <app>
-    <lem wit="#V1 #M #W">ܙܒܢܐ</lem>
+    <lem wit="#V1 #M #W #Al">ܙܒܢܐ</lem>
     <rdg wit="#B" type="variation">ܙܒܢ̈ܐ</rdg>
    </app>
    
    ܕܝܢ
    
    <app>
-    <lem wit="#V1 #M #B">ܘܢܘܓܪܐ ܕܝܘܡ̈ܬܐ</lem>
+    <lem wit="#V1 #M #B #Al">ܘܢܘܓܪܐ ܕܝܘܡ̈ܬܐ</lem>
     <rdg wit="#W" type="variation">ܘܢܓܘܪ ܝܘܡ̈ܬܐ</rdg>
    </app>
    
    <app>
     <lem wit="#V1">.</lem>
-    <rdg wit="#M #W" type="punctuation">܉</rdg>
+    <rdg wit="#M #W #Al" type="punctuation">܉</rdg>
     <rdg wit="#B" type="punctuation"/>
    </app>
    
@@ -551,7 +551,7 @@
    <pb n="2v" wit="#M" />
    
    <app>
-    <lem wit="#V1 #M">ܢܦܫܐ</lem>
+    <lem wit="#V1 #M #B #Al">ܢܦܫܐ</lem>
     <rdg wit="#W" type="orthographic">ܢܦ̮ܫܐ</rdg>
    </app>
    
@@ -559,48 +559,48 @@
    
    <app>
     <lem wit="#V1">.</lem>
-    <rdg wit="#M #W #B" type="punctuation"/>
+    <rdg wit="#M #W #B #Al" type="punctuation"/>
    </app>
    
    ܗܘ̇ ܕܡܬܝܕܥ ܗ݇ܘܐ ܢܨܝܒܢܝܐ
     
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg wit="#M #W" type="punctuation">.</rdg>
+    <rdg wit="#M #W #Al" type="punctuation">.</rdg>
     <rdg wit="#B" type="punctuation"/>
    </app>
     
    ܕܠܗܕܐ ܕܬܒܥܬ ܡܢܝ ܐܬܪܟܢ ܐܫܬܡܥ ܐܩܒܠ ܥܠ 
    
    <app>
-    <lem wit="#V1 #M #B">ܢܦܫܝ</lem>
+    <lem wit="#V1 #M #B #Al">ܢܦܫܝ</lem>
     <rdg wit="#W" type="orthographic">ܢܦ̮ܫܝ</rdg>
    </app>
    
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg  wit="#M #W" type="punctuation">.</rdg>
+    <rdg  wit="#M #W #Al" type="punctuation">.</rdg>
     <rdg wit="#B" type="punctuation">܀</rdg>
    </app>
 
    ܘܠܐ ܐܬܛܦܝܣܬ ܠܦܝܣܗ ܗܘ̇ ܝܩܝܪܐ ܕܥܠܝ. ܠܘ ܡܪܚܐܝܬ
    
    <app>
-    <lem wit="#V1 #W #B ">ܘܒܢܝܫܐ</lem>
+    <lem wit="#V1 #W #B #Al">ܘܒܢܝܫܐ</lem>
     <rdg wit="#M" type="variation">ܘܒܢܝ̈ܫܐ</rdg>
    </app>
 
    ܕܠܐ ܡܫܬܡܥܢܘܬܐ 
    
    <app>
-    <lem wit="#V1 #M #W"/>
+    <lem wit="#V1 #M #W #Al"/>
     <rdg wit="#B" type="punctuation">.</rdg>
    </app>
 
    ܚܣ
    
    <app>
-    <lem wit="#V1 #W">܉</lem>
+    <lem wit="#V1 #W #Al">܉</lem>
     <rdg wit="#M" type="punctuation">:</rdg>
     <rdg wit="#B" type="punctuation"/>
    </app>
@@ -609,20 +609,20 @@
     
     <app>
     <lem wit="#V1">܇</lem>
-    <rdg wit="#M #W #B" type="punctuation">.</rdg>
+    <rdg wit="#M #W #B #Al" type="punctuation">.</rdg>
    </app>
     
    ܘܕܣܓܝ ܥܒܪܐ ܡܢ ܡܫܘܚܬܐ ܕܝܠܝ ܕܘܝܐ ܥܡܝܠ ܒܕܠܩܘ̈ܒܠܝܬܐ ܟܫܝܪܐܝܬ
    
    <app>
     <lem wit="#V1"/>
-    <rdg wit="#M #W #B" type="punctuation">.</rdg>
+    <rdg wit="#M #W #B #Al" type="punctuation">.</rdg>
    </app>
 
    ܘܬܘܒ ܕܠܐ ܠܬܫܥܝܬܐ ܕܐܝܟ ܗܢܐ ܓܒܪܐ ܪܒܐ
     
    <app>
-    <lem wit="#V1 #W">܉</lem>
+    <lem wit="#V1 #W #Al">܉</lem>
     <rdg wit="#M #B" type="punctuation">:</rdg>
    </app>
     
@@ -630,7 +630,7 @@
    
    <app>
     <lem wit="#V1 #B">ܐܛܢܦܝܗ̇</lem>
-    <rdg wit="#W #M" type="addition">ܘܐܛܢܦܝܗ̇</rdg>
+    <rdg wit="#W #M #Al" type="addition">ܘܐܛܢܦܝܗ̇</rdg>
    </app>
 
    ܘܐܫܚܡܝܗ̇
@@ -640,7 +640,7 @@
    ܒܡܠܬܐ ܚܠܫܬܐ ܕܝܠܝ ܒܘܪܐ ܘܗܕܝܘܛܐ
 
    <app>
-    <lem wit="#V1 #M #W">
+    <lem wit="#V1 #M #W #Al">
      ܀
     </lem>
     <rdg wit="#B" type="punctuation"/>
@@ -649,30 +649,30 @@
    ܟܕ ܕܝܢ ܚܡܝܡܐܝܬ ܒܚܘܒܐ ܕܪܬܚ
 
    <app>
-    <lem wit="#V1 #M #B"/>
+    <lem wit="#V1 #M #B #Al"/>
     <rdg wit="#W" type="addition">ܘܡܛܪܛܥ</rdg>
    </app>
 
    ܡܦܝܣ ܗ݇ܘܐ ܠܝ ܗܘ̇ ܫܪܐ ܒܝܬ ܟܐܢ̈ܐ ܥܠ
 
    <app>
-    <lem wit="#V1 #M #B ">ܗܢܐ</lem>
+    <lem wit="#V1 #M #B #Al">ܗܢܐ</lem>
     <rdg wit="#W" type="variation">ܗܢ</rdg>
    </app>
    
    <app>
-    <lem wit="#V1 #M">ܣܘܥܪܢܐ</lem>
+    <lem wit="#V1 #M #B #Al">ܣܘܥܪܢܐ</lem>
     <rdg wit="#W" type="variation">ܣܘܥܪ̈ܢܐ</rdg>
    </app>
    
    <app>
     <lem wit="#V1">:</lem>
-    <rdg wit="#M #W" type="punctuation">.</rdg>
+    <rdg wit="#M #W #Al" type="punctuation">.</rdg>
     <rdg wit="#B" type="punctuation"/>
    </app>
    
    <app>
-    <lem wit="#V1 #W #B ">ܘܐܢܐ</lem>
+    <lem wit="#V1 #W #B #Al">ܘܐܢܐ</lem>
     <rdg wit="#M" type="variation">ܘܐܢ</rdg>
    </app>
 
@@ -685,7 +685,7 @@
    <app>
     <lem wit="#V1">܆</lem>
     <rdg wit="#W #B" type="punctuation"/>
-    <rdg wit="#M" type="punctuation">.</rdg>
+    <rdg wit="#M #Al" type="punctuation">.</rdg>
    </app>
    
    ܘܕܠܝܬ ܠܝ
@@ -696,35 +696,35 @@
    
    <app>
     <lem wit="#V1">܉</lem>
-    <rdg wit="#M #W #B" type="punctuation">.</rdg>
+    <rdg wit="#M #W #B #Al" type="punctuation">.</rdg>
    </app>
    
    ܠܐ ܡܢ ܟܝܢܐ ܐܟܚ݇ܕ ܘܐܦܠܐ ܡܢ ܟܬܒܐ
    
    <app>
     <lem wit="#V1">:</lem>
-    <rdg wit="#M #W #B" type="punctuation">.</rdg>
+    <rdg wit="#M #W #B #Al" type="punctuation">.</rdg>
    </app>
    
    ܘܕܠܐ
    
    <app>
     <lem wit="#B">ܫܘܐ ܐ݇ܢܐ</lem>
-    <rdg wit="#V1 #M #W" type="orthographic">ܫܘܢܐ</rdg>
+    <rdg wit="#V1 #M #W #Al" type="orthographic">ܫܘܢܐ</rdg>
    </app>
 
    <app>
     <lem wit="#V1">ܬܘܒ</lem>
-    <rdg wit="#M #W #B" type="omission"/>
+    <rdg wit="#M #W #B #Al" type="omission"/>
    </app>
 
    <app>
-    <lem wit="#V1 #M #W ">ܠܡܥܒܕܢܘܬܐ</lem>
+    <lem wit="#V1 #M #W #Al">ܠܡܥܒܕܢܘܬܐ</lem>
     <rdg wit="#B" type="variation">ܠܡܥܒܕܢܘܬ</rdg>
    </app>
 
    <app>
-    <lem wit="#M #W">ܛܝܒܘܬܢܝܬܐ</lem>
+    <lem wit="#M #W #Al">ܛܝܒܘܬܢܝܬܐ</lem>
     <rdg wit="#V1" type="orthographic">ܛܝܒܘܢܝܬܐ</rdg>
     <rdg wit="#B" type="variation">ܛܝܒܘܬܐ</rdg>
    </app>
