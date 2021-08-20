@@ -473,7 +473,7 @@
    ܕܒܬܐܘܪ̈ܝܣ ܪ̈ܡܬܐ ܡܬܒܣܡ ܪܘܚܢܐܝܬ ܕܠܐ ܣܒܥܘ
      
    <app>
-    <lem wit="#V1 #M #W" #Al>.</lem>
+    <lem wit="#V1 #M #W  #Al">.</lem>
     <rdg wit="#B" type="punctuation"/>
    </app>
    
