@@ -270,6 +270,14 @@
     <xsl:apply-templates select="node()"/>
   </xsl:template>
 
+<!-- Template paragraph-->
+  <xsl:template match="tei:p">
+    <p>
+      <xsl:apply-templates select="node()"/>
+    </p>
+  </xsl:template>
+
+	
 <!-- Template head-->
 
   <xsl:template match="tei:head">
