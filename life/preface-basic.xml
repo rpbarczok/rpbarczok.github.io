@@ -110,7 +110,7 @@
 
  <text xml:lang="syr">
   <div1 type="chapter" n="0" style="text-align:justify;">
-   
+  
    <app>
     <rdg wit="#W"><witStart/></rdg>
     <rdg wit="#M"><witStart/></rdg>
@@ -268,12 +268,12 @@
 
     
    </head>
-
-   ܬܐܘܠܘܓܘܣ ܐ݇ܢܫ ܚܟܝܡ ܒܐ݇ܪ̈ܙܐ ܐܠܗ̈ܝܐ
+   <p id="01">
+    ܬܐܘܠܘܓܘܣ ܐ݇ܢܫ ܚܟܝܡ ܒܐ݇ܪ̈ܙܐ ܐܠܗ̈ܝܐ
    
-   <app>
-    <lem wit="#V1 #M #Al">.</lem>
-    <rdg wit="#W #B" type="punctuation"/>
+    <app>
+     <lem wit="#V1 #M #Al">.</lem>
+     <rdg wit="#W #B" type="punctuation"/>
    </app>
    
    ܦܣܩ ܘܫܪܪ ܘܚܬܡ ܒܡܠܬܗ
@@ -395,7 +395,8 @@
    </app>
 
    ܡܬܦܪܣ ܀
-
+</p>
+<p id="02">
    <pb n="2r" wit="#V1" />
 
    <app>
@@ -456,7 +457,6 @@
      ܀
     </rdg>
    </app>
-   
    ܩܫܝܫܐ ܘܝܚܝܕܝܐ ܬܩܢܐ ܩܢܐ ܗܘܢܐ
 
    <app>
@@ -526,7 +526,11 @@
    </app>
    
    
-   ܕܠܐ ܐܣܒܝܗ̇ ܥܠ ܩܢܘܡܝ ܚܠܫܐ ܀ ܡܢ ܩܕܡ 
+   ܕܠܐ ܐܣܒܝܗ̇ ܥܠ ܩܢܘܡܝ ܚܠܫܐ ܀ 
+ </p>
+ <p id="03">
+
+ ܡܢ ܩܕܡ 
    
    <app>
     <lem wit="#V1 #M #W #Al">ܙܒܢܐ</lem>
@@ -645,6 +649,8 @@
     </lem>
     <rdg wit="#B" type="punctuation"/>
    </app>
+  </p>
+  <p id="04">
 
    ܟܕ ܕܝܢ ܚܡܝܡܐܝܬ ܒܚܘܒܐ ܕܪܬܚ
 
@@ -881,6 +887,8 @@
     <rdg wit="#W" type="punctuation">..</rdg>
     <rdg wit="#B" type="punctuation">.</rdg>
    </app>
+ </p>
+ <p id="05">
 
    ܐܢ݇ܬ ܕܝܢ ܐܘ ܡܝܩܪܐ ܕܥܠܝ ܘܚܒܝܒܝ ܫܪܝܪܐ
    
@@ -1317,7 +1325,9 @@
     <lem wit="#V1 #M #Al">܀</lem>
     <rdg wit="#W #B" type="punctuation" cause="carelessness">..</rdg>
    </app>
-   
+  </p>
+  <p id="06">
+
     ܟܕ ܕܝܢ ܚܙܝܬ
    
    <app>
@@ -1802,7 +1812,11 @@
     <rdg wit="#B" type="punctuation"/>
    </app>
    
-   ܘܐܝܟܢ ܠܘ ܗܟܢܐ ܀ ܗܟܝ̈ܡܐ ܕܝܢ 
+   ܘܐܝܟܢ ܠܘ ܗܟܢܐ ܀ 
+  </p>
+  <p id="07">
+
+   ܗܟܝ̈ܡܐ ܕܝܢ 
    
    <app>
     <lem wit="#V1 #M #Al">ܕܒܝܘܠܦܢܐ</lem>
@@ -1874,7 +1888,12 @@
     <rdg wit="#B" type="addition">ܕܡܕܒܪܢܘܬܐ ܘܕܡܦܪܢܣܢܘܬܐ</rdg>
    </app>
    
-   . ܗܢܘܢ ܕܩܕ̈ܡܝܐ ܡܚܪܪ̈ܝ ܡܢ ܥܕܠܝܐ ܡܦܣܝܢ ܒܗܘܢ ܀
+   . 
+   
+   ܗܢܘܢ ܕܩܕ̈ܡܝܐ ܡܚܪܪ̈ܝ ܡܢ ܥܕܠܝܐ ܡܦܣܝܢ ܒܗܘܢ ܀
+  </p>
+  <p id="08">
+
    
    <pb n="5v" wit="#M" />
    
@@ -2425,6 +2444,8 @@
     </lem>
     <rdg wit="#B" type="omission" cause="abrigment"/>
    </app>
+  </p>
+  <p id="09">
 
    ܡܕܒܪܢܘܬܐ ܕܝܢ ܕܬܠܬ
    
@@ -2643,7 +2664,9 @@
     <lem wit="#V1 #W #M #Al">܀</lem>
     <rdg wit="#B" type="punctuation">.</rdg>
    </app>
-   
+  </p>
+  <p id="10">
+
    ܒܕܓܘܢ ܥܠ ܣܒܪܐ ܘܥܘܕܪܢܐ ܐܠܗܝܐ. ܗܐ
    
    <app>
@@ -2775,7 +2798,9 @@
     <lem wit="#V1 #W #M #Al">܀</lem>
     <rdg wit="#B" type="punctuation"/>
    </app>
-   
+  </p>
+  <p id="11">
+
    ܟܕ
    
    <app>
@@ -2983,6 +3008,8 @@
     </lem>
     <rdg wit="#B" type="omission"/>
    </app>
+  </p>
+  <p id="12">
 
    <pb n="7r" wit="#V1" />
 
@@ -3667,7 +3694,9 @@
     <rdg wit="#W" type="punctuation">..</rdg>
     <rdg wit="#B" type="punctuation"/>
    </app>
-   
+   </p>
+   <p id="13">
+
     ܒܕܓܘܢ ܙܕܩ ܕܬܕܥ ܐܘ ܐܚܘܢ ܛܘܒܢܐ
    
    <app>
@@ -3722,7 +3751,9 @@
     <rdg wit="#W" type="punctuation">..</rdg>
     <rdg wit="#B" type="punctuation">.</rdg>
    </app>
-   
+  </p>
+  <p id="14">
+
     ܠܐ ܕܝܢ ܛܥܝܐ ܡܢܝ ܘܐܦ ܗܝ̤ ܗܕܐ ܐܚ̈ܝ
    
    <app>
@@ -3959,8 +3990,9 @@
    </app>
 
    ܘܠܐ ܡܫܬܚܠܦܢܝܬܐ ܢܣܝܥ ܘܢܚܝܠ ܘܢܠܒܒ ܠܡܚܝܠܘܬܝ ܘܠܬܚܘܒܘܬܝ ܕܠܘܬ ܫܘܡܠܝܗ̇ ܕܗܕܐ ܬܐܓܘܪܬܐ ܐܡܛܐ ܐܬܡܢܥ ܐܣܡܘܟ ܘܪ̈ܚܡܘܗܝ ܢܫܬܦܥܘܢ ܥܠܝܢ ܥܕ ܗܫܐ ܘܥܕ ܢܡܛܐ ܠܬܡܢ ܒܨܠܘܬ̈ܗ ܕܪܒܢ ܘܒܨ̈ܠܘܬܐ ܕܟܠܗܘܢ ܩܕܝ̈ܫܐ ܐܡܝܢ
+   </br>
    <em>ܫܠܡ ܡܦܩ ܒܪܘܚܐ</em>
-
+   </p>
    <app>
     <rdg wit="#B"><witEnd/></rdg>
    </app>
