@@ -329,7 +329,7 @@
     <pb n="2r" wit="#V1" />
     <app>
      <lem wit="#V1 #M #B #Al">ܘܗܐ</lem>
-     <rdg wit="#W" type="change">ܕܗܐ</rdg>
+     <rdg wit="#W" type="variation">ܕܗܐ</rdg>
     </app>
     <app>
       <lem wit="#V1 #W #B #Al">ܘܐܦ</lem>
@@ -358,7 +358,7 @@
     
     <app>
       <lem wit="#V1 #M #W #Al">ܟܠ ܫܘܦܪ̈ܝܢ</lem>
-      <rdg wit="#B" type="extension">ܟܠ ܟܘܫܪ̈ܐ ܘܟܠ ܫܘܦܪ̈ܐ</rdg>
+      <rdg wit="#B" type="addition">ܟܠ ܟܘܫܪ̈ܐ ܘܟܠ ܫܘܦܪ̈ܐ</rdg>
     </app>
     
     <app>
