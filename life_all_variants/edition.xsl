@@ -312,7 +312,7 @@
     <xsl:choose>
       <xsl:when test="./tei:lem">
        <xsl:choose>
-        <xsl:when test="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission')"> 
+        <xsl:when test="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission') or contains(./tei:rdg/@type, 'orthography') or contains(./tei:rdg/@type, 'punctuation')"> 
          <a class="app" onclick="showApp('{generate-id()}');">
           <xsl:apply-templates select="tei:lem"/>  
          </a>
