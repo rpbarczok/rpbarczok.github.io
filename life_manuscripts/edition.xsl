@@ -236,15 +236,13 @@
 
         <div class="w3-col s1 w3-padding">
         </div>
-
         <div class="w3-col s8  w3-card-4 w3-white w3-padding">
           <xsl:attribute name="style">
             <xsl:value-of select="$fontstyle"/>
           </xsl:attribute>
 
-          <xsl:apply-templates select="exsl:node-set($flattened)/node()"/>
-        </div>
-        
+          <xsl:apply-templates select="//tei:text"/>
+        </div>        
         <div class="w3-col s1 w3-container">
         </div>
       </div>
