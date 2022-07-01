@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:exsl="http://exslt.org/common"
-                extension-element-prefixes="exsl">
-
-<xsl:import href="exsl.xsl" />
+<xsl:transform version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:tei="http://www.tei-c.org/ns/1.0"
+  xmlns:exsl="http://exslt.org/common"
+    extension-element-prefixes="exsl">
 
   <xsl:output method="html" />
 
-  <!-- Variablen -->
+  <!-- Variables -->
   <!-- Witness and Font: Import from JavaScript -->
   <xsl:param name="witness" />
 
@@ -27,29 +26,6 @@
 
   <xsl:param name="jsfont" select="concat('displayResult(', $apos, $witness, $apos, ',this.value)')"/>
 
-  <!-- Variable: Xml-file is flattened for further processing -->
-   <xsl:variable name="flattened">
-    <xsl:apply-templates select="tei:TEI/tei:text" mode="stage1"/>
-  </xsl:variable>
-
-  <!-- Template: template for flattened-variable for variable -->
-  <xsl:template match="tei:div1 | tei:p" mode="stage1">
-    <xsl:for-each select="node() | @*">
-      <xsl:choose>
-        <xsl:when test="name()='div1'">
-          <xsl:apply-templates select="." mode="stage1"/>
-        </xsl:when>
-        <xsl:when test="name()='p' and ((count(preceding::tei:witStart/..[@wit=$nrwitness]) + count(preceding::tei:witEnd/..[@wit=$nrwitness]) + count(preceding::tei:lacunaStart/..[@wit=$nrwitness]) + count(preceding::tei:lacunaEnd/..[@wit=$nrwitness])) mod 2 = 1)">
-          <xsl:apply-templates select="." mode="stage1"/>
-          <br/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:copy-of select="."/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:for-each>
-  </xsl:template>
-
   <!-- Template 1: Gesamtdokument -->
   <xsl:template match="/">
     <header style="background-image:url('/pictures/busnaya_snippet40.png');  background-size: cover; height:200px; padding-top: 35px; padding-left: 10px;">
@@ -61,31 +37,8 @@
         <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author/."/>
       </h3>
     </header>
-
     <main>
-      <!-- List of the manuscripts-->
       <div class="w3-container w3-light-gray">
-        <div class ="w3-panel">
-          <select id="witness" name="witness" onchange="displayResult(this.value)">
-            <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
-              <option>
-                <xsl:attribute name="value">
-                  <xsl:value-of select="./@xml:id"/>
-                </xsl:attribute>
-                <xsl:if test="./@xml:id = $witness">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                <xsl:value-of select="./@xml:id"/>  =
-                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:settlement/."/>,
-                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:repository/."/>,
-                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>, part of the
-                <xsl:value-of select="../tei:head/text()"/>
-              </option>
-            </xsl:for-each>
-          </select>
-        </div>
         <div>
           <ul>
             <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
@@ -99,17 +52,15 @@
           </ul>
         </div>
       </div>
-      <!-- Selection of the fonts -->
-      <div>
-        <div class="w3-panel">
-          <div class="w3-row">
-            <div class="w3-col s1 w3-padding">
-            </div>
-            <div class="w3-col s11 w3-padding">
-              <select id="font" name="font">
-	  	          <xsl:attribute name="onchange">
-                <xsl:value-of select="$jsfont"/>
-              </xsl:attribute>
+      <div class="w3-panel">
+        <div class="w3-row">
+          <div class="w3-col s1 w3-padding">
+          </div>
+          <div class="w3-col s11 w3-padding">
+            <select id="font" name="font">
+	  	      <xsl:attribute name="onchange">
+              <xsl:value-of select="$jsfont"/>
+            </xsl:attribute>
               <option value="EastSyriacAdiabene">
                 <xsl:if test="$font='EastSyriacAdiabene'">
                   <xsl:attribute name="selected">
@@ -234,25 +185,210 @@
           </div>
         </div>
       </div>
-      <!-- Text -->
       <div class="w3-row">
-
+      
         <div class="w3-col s1 w3-padding">
         </div>
-        <div class="w3-col s8  w3-card-4 w3-white w3-padding">
+
+        <div class="w3-col s8 w3-card-4 w3-white w3-padding">
           <xsl:attribute name="style">
             <xsl:value-of select="$fontstyle"/>
           </xsl:attribute>
+        
+          <xsl:apply-templates select="//tei:text"/>
+        </div>
+        
+        <div class="w3-col s3" style="border: 3px solid; background-color: white; position: fixed; right: 0; top: 25%;">
+          Critical Apparatus:
+          <xsl:for-each select="//tei:app">
+            <div id="{generate-id()}" class="w3-panel w3-display-container critapp" style="display:none;">
+              <span onclick="this.parentElement.style.display='none'" class="w3-display-topright">
+              X
+              </span>
+              
 
-        </div>        
-        <div class="w3-col s1 w3-container">
+              <xsl:choose>
+                <xsl:when test="./tei:rdg/tei:lacunaStart">
+                  <xsl:for-each select="tei:rdg">
+                    <xsl:value-of select="@wit"/>: Lacuna starts.
+                  </xsl:for-each>
+                </xsl:when>
+
+                <xsl:when test="./tei:rdg/tei:lacunaEnd">
+                  <xsl:for-each select="tei:rdg">
+                    <xsl:value-of select="@wit"/>: Lacuna ends.
+                    <br/>
+                  </xsl:for-each>
+                </xsl:when>
+                
+                <xsl:when test="./tei:rdg/tei:witEnd">
+                  <xsl:for-each select="tei:rdg">
+                    <xsl:value-of select="@wit"/> ends.
+                    <br/>
+                  </xsl:for-each>
+                </xsl:when>
+                
+                <xsl:when test="./tei:rdg/tei:witStart">
+                  <xsl:for-each select="tei:rdg">
+                    <xsl:value-of select="@wit"/> starts.
+                    <br/>
+                  </xsl:for-each>
+                </xsl:when>
+
+
+                <xsl:otherwise>
+                  <p>
+                    <xsl:attribute name="style">
+                      <xsl:value-of select="$fontstyle"/>
+                    </xsl:attribute>
+                    <xsl:apply-templates select="tei:lem" mode="app"/>
+                    ]
+                    <br/>
+                  </p>
+                  <hr/>
+                  <span>
+                    <xsl:attribute name="style">
+                      <xsl:value-of select="$fontstyle2"/>
+                    </xsl:attribute>
+                    <xsl:apply-templates select="tei:rdg"/>
+                  </span>
+                </xsl:otherwise>
+              </xsl:choose>
+
+            </div>
+          </xsl:for-each>        
         </div>
       </div>
     </main>
-
     <footer class="w3-container w3-gray">
       <hr/>
     </footer>
+  </xsl:template>
+
+  <xsl:template match="tei:text">
+    <xsl:apply-templates select="node()"/>
+  </xsl:template>
+
+<!-- Template paragraph-->
+  <xsl:template match="tei:p">
+    <p>
+      <xsl:apply-templates select="node()"/>
+    </p>
+  </xsl:template>
+
+	
+<!-- Template head-->
+
+  <xsl:template match="tei:head">
+    <p class="head">
+      <xsl:apply-templates select="node()"/>
+    </p>
+  </xsl:template>
+  
+  <!-- Template em -->
+  <xsl:template match="tei:em">
+    <span class="em">
+      <xsl:apply-templates select="node()"/>
+    </span>
+  </xsl:template>
+
+    <!-- Template del -->
+  <xsl:template match="tei:del">
+    <del><xsl:value-of select="."/></del>
+  </xsl:template>
+
+  <!-- Template add -->
+  <xsl:template match="tei:add">
+    [<xsl:value-of select="."/>]
+  </xsl:template>
+  
+  <!-- Template gap -->
+  <xsl:template match="tei:gap">
+    [...]
+  </xsl:template>
+
+  <xsl:template match="tei:app">
+    <xsl:choose>
+      <xsl:when test="./tei:lem">
+       <xsl:choose>
+        <xsl:when test="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission') or contains(./tei:rdg/@type, 'orthographic') or contains(./tei:rdg/@type, 'punctuation')"> 
+         <a class="app" onclick="showApp('{generate-id()}');">
+          <xsl:apply-templates select="tei:lem"/>  
+         </a>
+        </xsl:when>
+        <xsl:otherwise>
+         <xsl:apply-templates select="tei:lem/node()"/>
+        </xsl:otherwise>
+       </xsl:choose>
+        
+        
+      </xsl:when>
+      <xsl:when test="./tei:rdg/tei:lacunaStart">
+        <a class="app" onclick="showApp('{generate-id()}');">
+          *  
+        </a>
+      </xsl:when>
+      <xsl:when test="./tei:rdg/tei:lacunaEnd">
+        <a class="app" onclick="showApp('{generate-id()}');">
+          *  
+        </a>
+      </xsl:when>
+      <xsl:when test="./tei:rdg/tei:witStart">
+        <a class="app" onclick="showApp('{generate-id()}');">
+          *  
+        </a>
+      </xsl:when>
+      <xsl:when test="./tei:rdg/tei:witEnd">
+        <a class="app" onclick="showApp('{generate-id()}');">
+          *  
+        </a>
+      </xsl:when>
+    </xsl:choose>
+
+  </xsl:template>
+
+  <xsl:template match="tei:lem">
+
+    <xsl:choose>
+      <xsl:when test="text() != ''">
+         <strong>
+         ˺
+         </strong>
+         <xsl:apply-templates select="node()"/>
+         <strong>
+         ˹
+         </strong>
+      </xsl:when>
+      <xsl:otherwise>
+        *
+      </xsl:otherwise>
+    </xsl:choose>
+
+  </xsl:template>
+  
+  <xsl:template match="tei:lem" mode="app">
+    <xsl:if test="text() != ''">
+      <xsl:apply-templates select="node()"/>
+    </xsl:if>
+  </xsl:template>
+
+
+  <xsl:template match="tei:rdg">
+    <xsl:value-of select="@wit"/>
+    :
+    <xsl:choose>
+      <xsl:when test="text() != ''">
+        <p style="direction: rtl;"><xsl:apply-templates select="node()"/></p>
+      </xsl:when>
+      <xsl:when test="./@type='nonlegible'">
+        [...]
+        <br/>
+      </xsl:when>
+      <xsl:otherwise>
+        om.
+        <br/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
 </xsl:transform>
