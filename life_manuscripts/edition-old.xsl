@@ -247,4 +247,109 @@
     </footer>
   </xsl:template>
 
+  <!-- Template: Überschriften -->
+  <xsl:template match="tei:head">
+    <span style="color:red;">
+      <xsl:apply-templates select="node()"/>
+    </span>
+    <xsl:if test="((count(preceding::tei:witStart/..[@wit=$nrwitness]) + count(preceding::tei:witEnd/..[@wit=$nrwitness]) + count(preceding::tei:lacunaStart/..[@wit=$nrwitness]) + count(preceding::tei:lacunaEnd/..[@wit=$nrwitness])) mod 2 = 1)">
+      <br/>
+    </xsl:if>
+  </xsl:template>
+
+  <!-- lacuna text -->
+  <xsl:template match="text()">
+    <xsl:if test="((count(preceding::tei:witStart/..[@wit=$nrwitness]) + count(preceding::tei:witEnd/..[@wit=$nrwitness]) + count(preceding::tei:lacunaStart/..[@wit=$nrwitness]) + count(preceding::tei:lacunaEnd/..[@wit=$nrwitness])) mod 2 = 1)">
+      <xsl:value-of select="."/>
+    </xsl:if>
+  </xsl:template>
+
+  <!-- Template Paragragphes / br -->
+  <xsl:template match="br">
+    <br/>
+  </xsl:template>
+
+  <!-- Template pages -->
+
+  <xsl:template match="tei:pb">
+    <xsl:if test="contains(@wit, $witness)"> [<xsl:value-of select="@n"/>] </xsl:if>
+  </xsl:template>
+
+  <!-- Template del -->
+  <xsl:template match="tei:del">
+    <del><xsl:value-of select="."/></del>
+  </xsl:template>
+
+  <!-- Template add -->
+  <xsl:template match="tei:add">
+    [<xsl:value-of select="."/>]
+  </xsl:template>
+
+  <!-- Template Apparat -->
+  <xsl:template match="tei:app">
+    <xsl:for-each select="tei:rdg | tei:lem">
+      <xsl:choose>
+        <xsl:when test="(not(child::tei:witStart
+                              or child::tei:lacunaStart
+                              or child::tei:lacunaEnd
+                              or child::tei:witEnd))">
+          <!-- onclick="" necessary for iOS, so iPhones use "hover" instead of "click" handler -->
+          <span class="w3-tooltip" onclick="">
+            <strong>
+              <xsl:if test="(contains(@wit, $witness) or contains(@wit, $witnessgroup))" >
+                <xsl:choose>
+                  <xsl:when test="text() != ' '">
+                    <xsl:apply-templates select="node()"/>
+                  </xsl:when>
+                  <xsl:when test="./@type = 'nonlegible'">
+                    [...]
+                  </xsl:when>
+                  <xsl:otherwise>
+                    *
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:if>
+            </strong>
+            <span class="w3-text w3-tag" style="direction: rtl; position:absolute; left:0; bottom:18px; width:200px;">
+              <xsl:for-each select="../tei:rdg | ../tei:lem">
+                <xsl:if test="not((contains(@wit, $witness)) or (contains(@wit, $witnessgroup)))">
+                  <xsl:value-of select="./@wit"/>:
+                  <xsl:choose>
+                    <xsl:when test="text() != ' '">
+                      <xsl:apply-templates select="node()"/>
+                      <br/>
+                    </xsl:when>
+                    <xsl:when test="./@type='nonlegible'">
+                      legi nequit
+                      <br/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      deest
+                      <br/>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </xsl:if>
+              </xsl:for-each>
+            </span>
+          </span>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="(contains(@wit, $witness) or contains(@wit, $witnessgroup))" >
+            <xsl:choose>
+              <xsl:when test="child::tei:witStart">
+                <strong style="font-family: Arial">
+                  Ms <xsl:value-of select="$witness"/>
+                  <br/>
+                </strong
+>
+              </xsl:when>
+              <xsl:when test="child::tei:lacunaStart">
+                [...lacuna...]
+              </xsl:when>
+            </xsl:choose>
+          </xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each>
+  </xsl:template>
 </xsl:transform>
