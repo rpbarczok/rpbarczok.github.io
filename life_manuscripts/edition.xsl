@@ -244,7 +244,7 @@
             <xsl:value-of select="$fontstyle"/>
           </xsl:attribute>
 
-          <xsl:apply-templates select="//tei:text"/>
+          <!-- <xsl:apply-templates select="//tei:text"/> -->
         </div>        
         <div class="w3-col s1 w3-container">
         </div>
