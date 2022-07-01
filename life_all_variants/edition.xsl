@@ -46,8 +46,7 @@
                 <xsl:value-of select="./@xml:id"/> =
                 <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:settlement/."/>,
                 <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:repository/."/>,
-                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>, part of the
-                <xsl:value-of select="../tei:head/text()"/>
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>
               </li>
             </xsl:for-each>
           </ul>
