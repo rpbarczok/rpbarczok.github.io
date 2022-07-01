@@ -30,7 +30,7 @@
   <xsl:template match="/">
     <header style="background-image:url('/pictures/busnaya_snippet40.png');  background-size: cover; height:200px; padding-top: 35px; padding-left: 10px;">
       <h2>
-        8
+        9
         <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/."/>
       </h2>
       <h3>
@@ -311,18 +311,9 @@
   <xsl:template match="tei:app">
     <xsl:choose>
       <xsl:when test="./tei:lem">
-       <xsl:choose>
-        <xsl:when test="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission') or contains(./tei:rdg/@type, 'orthographic') or contains(./tei:rdg/@type, 'punctuation')"> 
-         <a class="app" onclick="showApp('{generate-id()}');">
+        <a class="app" onclick="showApp('{generate-id()}');">
           <xsl:apply-templates select="tei:lem"/>  
-         </a>
-        </xsl:when>
-        <xsl:otherwise>
-         <xsl:apply-templates select="tei:lem/node()"/>
-        </xsl:otherwise>
-       </xsl:choose>
-        
-        
+        </a> 
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:lacunaStart">
         <a class="app" onclick="showApp('{generate-id()}');">
