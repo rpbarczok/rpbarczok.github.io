@@ -28,12 +28,12 @@
   <xsl:param name="jsfont" select="concat('displayResult(', $apos, $witness, $apos, ',this.value)')"/>
 
   <!-- Variable: Xml-file is flattened for further processing -->
-  <xsl:variable name="flattened">
+  <!-- <xsl:variable name="flattened">
     <xsl:apply-templates select="tei:TEI/tei:text" mode="stage1"/>
-  </xsl:variable>
+  </xsl:variable> -->
 
   <!-- Template: template for flattened-variable for variable -->
-  <xsl:template match="tei:div1 | tei:p" mode="stage1">
+  <!-- <xsl:template match="tei:div1 | tei:p" mode="stage1">
     <xsl:for-each select="node() | @*">
       <xsl:choose>
         <xsl:when test="name()='div1'">
@@ -48,7 +48,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:for-each>
-  </xsl:template>
+  </xsl:template> -->
 
   <!-- Template 1: Gesamtdokument -->
   <xsl:template match="/">
