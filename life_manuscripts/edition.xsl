@@ -86,36 +86,6 @@
           </xsl:for-each>
         </ul>
       </div>
-      <div>
-        <select id="selectFont" style="margin-top: 10px;">
-           <option value="EastSyriacAdiabene">East Syriac Adiabene</option>
-		      <option value="EastSyriacCtesiphon">East Syriac Ctesiphon</option>
-      		<option value="EstrangeloAntioch">Estrangelo Antioch</option>
-      		<option value="EstrangeloEdessa">Estrangelo Edessa</option>
-      		<option value="EstrangeloMidyat">Estrangelo Midyat</option>
-      		<option value="EstrangeloNisibin">Estrangelo Nisibin</option>
-      		<option value="EstrangeloQuenneshrin">Estrangelo Quenneshrin</option>
-      		<option value="EstrangeloTalada">Estrangelo Talada</option>
-      		<option value="EstrangeloTurAbdin">Estrangelo TurAbdin</option>
-      		<option value="SertoBatnan">Serto Batnan</option>
-      		<option value="SertoJerusalem">Serto Jerusalem</option>
-      		<option value="SertoKharput">Serto Kharput</option>
-      		<option value="SertoMalankara">Serto Malankara</option>
-      		<option value="SertoMardin">Serto Mardin</option>
-      		<option value="SertoUrhoy">Serto Urhoy</option>
-	</select>
-  <script type="text/javascript">
-    jQuery(document).ready(function() {
-        $('#selectFont').val("EastSyriacAdiabene");
-        $('#selectFont').on('change', function()
-        {
-            $('.selectableFont').not('.easternSyriac').css('font-family', $(this).val());
-            $('span.ui-keyboard-text').css('font-family', $(this).val());
-            var url = Routing.generate('set_session_fontface', { name: $(this).val() });
-    		jQuery.ajax({ url: url });
-		  });
-      });
-    </script>
       </div>
       <div class="w3-row">
         <div class="w3-col s1 w3-container">
@@ -175,7 +145,7 @@
 
   <!-- Template Apparat -->
   <xsl:template match="tei:app">
-    <xsl:for-each select="tei:rdg">
+    <xsl:for-each select="tei:rdg | tei:lem">
       <xsl:choose>
         <xsl:when test="(not(child::tei:witStart
                               or child::tei:lacunaStart
@@ -199,7 +169,7 @@
               </xsl:if>
             </strong>
             <span class="w3-text w3-tag" style="direction: rtl; position:absolute; left:0; bottom:18px; width:200px;">
-              <xsl:for-each select="../tei:rdg">
+              <xsl:for-each select="../tei:rdg | ../tei:lem">
                 <xsl:if test="not((contains(@wit, $witness)) or (contains(@wit, $witnessgroup)))">
                   <xsl:value-of select="./@wit"/>:
                   <xsl:choose>
