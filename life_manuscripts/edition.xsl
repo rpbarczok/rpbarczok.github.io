@@ -39,6 +39,27 @@
     </header>
     <main>
       <div class="w3-container w3-light-gray">
+        <div class ="w3-panel">
+          <select id="witness" name="witness" onchange="displayResult(this.value)">
+            <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
+              <option>
+                <xsl:attribute name="value">
+                  <xsl:value-of select="./@xml:id"/>
+                </xsl:attribute>
+                <xsl:if test="./@xml:id = $witness">
+                  <xsl:attribute name="selected">
+                    selected
+                  </xsl:attribute>
+                </xsl:if>
+                <xsl:value-of select="./@xml:id"/>  =
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:settlement/."/>,
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:repository/."/>,
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>, part of the
+                <xsl:value-of select="../tei:head/text()"/>
+              </option>
+            </xsl:for-each>
+          </select>
+        </div>
         <div>
           <ul>
             <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
