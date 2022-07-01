@@ -63,6 +63,7 @@
     </header>
 
     <main>
+      <!-- List of the manuscripts-->
       <div class="w3-container w3-light-gray">
         <div class ="w3-panel">
           <select id="witness" name="witness" onchange="displayResult(this.value)">
@@ -98,6 +99,7 @@
           </ul>
         </div>
       </div>
+      <!-- Selection of the fonts -->
       <div>
         <div class="w3-panel">
           <div class="w3-row">
@@ -232,6 +234,7 @@
           </div>
         </div>
       </div>
+      <!-- Text -->
       <div class="w3-row">
 
         <div class="w3-col s1 w3-padding">
