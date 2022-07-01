@@ -340,8 +340,7 @@
                 <strong style="font-family: Arial">
                   Ms <xsl:value-of select="$witness"/>
                   <br/>
-                </strong
->
+                </strong>
               </xsl:when>
               <xsl:when test="child::tei:lacunaStart">
                 [...lacuna...]
