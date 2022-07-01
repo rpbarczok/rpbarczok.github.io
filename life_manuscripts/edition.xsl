@@ -253,4 +253,8 @@
     </footer>
   </xsl:template>
 
+  <xsl:template match="tei:text">
+    <xsl:apply-templates select="node()"/>
+  </xsl:template>
+
 </xsl:transform>
