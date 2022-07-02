@@ -99,9 +99,9 @@
             </div>
             <div class="w3-col s11 w3-padding">
               <select id="font" name="font">
-	  	        <xsl:attribute name="onchange">
-                <xsl:value-of select="$jsfont"/>
-              </xsl:attribute>
+	  	          <xsl:attribute name="onchange">
+                  <xsl:value-of select="$jsfont"/>
+                </xsl:attribute>
                 <option value="EastSyriacAdiabene">
                   <xsl:if test="$font='EastSyriacAdiabene'">
                     <xsl:attribute name="selected">
@@ -220,23 +220,23 @@
                       selected
                     </xsl:attribute>
                   </xsl:if>
-                Serto Urhoy
-              </option>
-            </select>    
+                  Serto Urhoy
+                </option>
+              </select>    
+            </div>
           </div>
         </div>
       </div>
       <div class="w3-row">
-      
         <div class="w3-col s1 w3-padding">
         </div>
-
         <div class="w3-col s8 w3-card-4 w3-white w3-padding">
           <xsl:attribute name="style">
             <xsl:value-of select="$fontstyle"/>
           </xsl:attribute>
-        
+
           <xsl:apply-templates select="//tei:text"/>
+        
         </div>
         
         <div class="w3-col s3" style="border: 3px solid; background-color: white; position: fixed; right: 0; top: 25%;">
