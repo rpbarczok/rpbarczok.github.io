@@ -374,13 +374,13 @@
     <xsl:when test="parent[contains(@wit, $witness)]"
       [<xsl:value-of select="$witness"/> starts]
     </xsl:when>
-  </xsl:template>
+  </xsl:template> -->
 
   <xsl:template match="tei:witEnd">
-    <xsl:when test="parent[contains(@wit, $witness)]">
+    <xsl:when test="../tei:witEnd[contains(@wit, $witness)]">
         [<xsl:value-of select="$witness"/> ends]
     </xsl:when>
-  </xsl:template> -->
+  </xsl:template>
 
 
   <xsl:template match="tei:lem">
