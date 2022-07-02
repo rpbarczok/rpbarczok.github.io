@@ -345,11 +345,9 @@
         lemHurra
       </xsl:when>
       
-<!--      <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
-        <xsl:if test="Child::tei:witStart">
-          heureka
-        </xsl:if>
-      </xsl:when> -->
+      <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
+        heureka
+      </xsl:when>
       
       <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">  
         <a class="app" onclick="showApp('{generate-id()}');">
