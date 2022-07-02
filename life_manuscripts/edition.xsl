@@ -62,7 +62,10 @@
     <main>
       <div class="w3-container w3-light-gray">
         <div class ="w3-panel">
-          <select id="witness" name="witness" onchange="displayResult(this.value)">
+          <select id="witness" name="witness">
+            <xsl:attribute name="onchange">
+              <xsl:value-of select="$jsms"/>
+            </xsl:attribute>
             <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
               <option>
                 <xsl:attribute name="value">
