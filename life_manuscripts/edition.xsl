@@ -342,7 +342,9 @@
     <xsl:choose>
       
       <xsl:when test="./tei:lem[contains(@wit, $witness)]">
-        <apply-templates select="node()" />
+        <a class="app" onclick="showApp('{generate-id()}');">
+          <xsl:apply-templates select="tei:lem"/>  
+        </a> 
       </xsl:when>
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
         <xsl:choose>
@@ -359,7 +361,7 @@
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
           <xsl:otherwise>
-            <apply-templates select="node()"/>
+            <apply-templates select="."/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
