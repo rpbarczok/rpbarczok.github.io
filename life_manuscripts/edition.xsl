@@ -347,7 +347,7 @@
       
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
         <xsl:choose>
-          <xsl:when test="./child[name = 'tei:lacunaStart')]">
+          <xsl:when test="tei:rdg/tei:lacunaStart">
             [Lacuna starts]
           </xsl:when>
           <xsl:when test="child[name('tei:lacunaEnd')]">
