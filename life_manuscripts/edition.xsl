@@ -341,7 +341,7 @@
         Hurra
       </xsl:when>
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
-        <xsl:choose>
+<!--        <xsl:choose>
           <xsl:when test="./tei:lacunaStart">
             [lacuna starts]
           </xsl:when>
@@ -354,17 +354,17 @@
           <xsl:when test="./tei:witEnd">
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
-          <xsl:otherwise>
+          <xsl:otherwise> -->
             Hurra
-          </xsl:otherwise>
-        </xsl:choose>
+<!--          </xsl:otherwise>
+        </xsl:choose> -->
       </xsl:when>
       <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">
-        <xsl:when test="./tei:lacunaStart | ./tei:lacunaEnd | ./tei:witStart | ./tei:witEnd">
+<!--        <xsl:when test="./tei:lacunaStart | ./tei:lacunaEnd | ./tei:witStart | ./tei:witEnd">
           <a class="app" onclick="showApp('{generate-id()}');">
             *  
           </a>
-        </xsl:when>
+        </xsl:when> -->
       </xsl:when>
     </xsl:choose>
   </xsl:template>
