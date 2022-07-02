@@ -2,11 +2,7 @@
 
 <xsl:transform version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:tei="http://www.tei-c.org/ns/1.0"
-  xmlns:exsl="http://exslt.org/common"
-    extension-element-prefixes="exsl">
-
-  <xsl:import href="./exsl/exsl.xsl" />
+  xmlns:tei="http://www.tei-c.org/ns/1.0">
 
   <xsl:output method="html" />
 
@@ -90,7 +86,7 @@
 
         </div>
         <div class="w3-col s10  w3-card-4 w3-white w3-padding selectableFont" style="direction: rtl; font-size: 2em; font-family: EastSyriacAdiabene;">
-          <!--<xsl:apply-templates select="exsl:node-set($flattened)/node()"/>-->
+          <xsl:apply-templates select="$flattened/node()"/>
         </div>
         <div class="w3-col s1 w3-container">
 
