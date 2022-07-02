@@ -24,10 +24,21 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   
+  <!-- function for closing and opening the critical apparatus -->
+  <script>
+    function showApp(id) {
+    var x = document.getElementsByClassName('critapp')
+    var i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display='none';
+    }
+    document.getElementById(id).style.display='block';
+    }
+  </script>
   
   <!-- function to combine the XML and the XSLT data -->
   <script>
-        function displayResult(witness)
+        function displayResult(witness, font)
      {
       var target =    document.getElementById("preface")
       xmlFile = fetch("preface-basic.xml", init={"cache":"reload"})
