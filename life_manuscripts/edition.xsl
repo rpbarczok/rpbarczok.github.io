@@ -337,7 +337,7 @@
     [...]
   </xsl:template>
 
-  <xsl:template match="tei:app">
+<!--  <xsl:template match="tei:app">
     
     <xsl:choose>
       
@@ -356,7 +356,7 @@
       </xsl:when>
       
     </xsl:choose> 
-  </xsl:template>
+  </xsl:template> -->
 
   <xsl:template match="tei:lacunaStart">
     <xsl:when test="Parent[contains(@wit, $witness)]">
