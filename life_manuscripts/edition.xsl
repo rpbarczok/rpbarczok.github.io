@@ -361,7 +361,9 @@
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
           <xsl:otherwise>
-            <apply-templates select="."/>
+            <a class="app" onclick="showApp('{generate-id()}');">
+              <xsl:apply-templates select="tei:rpg"/>  
+            </a>           
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
@@ -375,7 +377,7 @@
     </xsl:choose> 
   </xsl:template>
 
-  <xsl:template match="tei:lem">
+  <xsl:template match="tei:lem | tei:rpg">
     <xsl:choose>
       <xsl:when test="text() != ''">
          <strong>
@@ -400,7 +402,7 @@
   </xsl:template>
 
 
-  <xsl:template match="tei:rdg">
+  <xsl:template match="tei:rdg" mode= "app">
     <xsl:choose>
       <xsl:when test="text() != ''">
          <strong>
