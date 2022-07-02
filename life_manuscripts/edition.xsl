@@ -342,25 +342,24 @@
     <xsl:choose>
       
       <xsl:when test="./tei:lem[contains(@wit, $witness)]">
-        lemHurra
+        <apply-templates select=".">
       </xsl:when>
-      
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
         <xsl:choose>
           <xsl:when test="tei:rdg/tei:lacunaStart">
             [Lacuna starts]
           </xsl:when>
-          <xsl:when test="child[name('tei:lacunaEnd')]">
+          <xsl:when test="tei:rdg/tei:lacunaEnd">
             [Lacuna ends]
           </xsl:when>
-          <xsl:when test="child[local-name() = 'tei:witStart']">
+          <xsl:when test="tei:rdg/tei:witStart">
             [<xsl:value-of select="$witness"/> starts]
           </xsl:when>
-          <xsl:when test="child[name('tei:witEnd')]">
+          <xsl:when test="tei:rdg/tei:witEnd">
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
           <xsl:otherwise>
-            rpgHurra
+            <apply-templates select=".">
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
@@ -373,31 +372,6 @@
       
     </xsl:choose> 
   </xsl:template>
-
- <!-- <xsl:template match="tei:lacunaStart">
-    <xsl:when test="parent[contains(@wit, $witness)]">
-      [lacuna starts]
-    </xsl:when>
-  </xsl:template>
-
-  <xsl:template match="tei:lacunaEnd">
-    <xsl:when test="parent[contains(@wit, $witness)]">
-      [lacuna ends]
-    </xsl:when>
-  </xsl:template>
-
-  <xsl:template match="tei:witStart">
-    <xsl:when test="parent[contains(@wit, $witness)]"
-      [<xsl:value-of select="$witness"/> starts]
-    </xsl:when>
-  </xsl:template> -->
-
-<!--  <xsl:template match="tei:witEnd">
-    <xsl:when test="../tei:witEnd[contains(@wit, $witness)]">
-        [<xsl:value-of select="$witness"/> ends]
-    </xsl:when>
-  </xsl:template> -->
-
 
   <xsl:template match="tei:lem">
     <xsl:choose>
