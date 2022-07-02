@@ -337,10 +337,8 @@
 
   <xsl:template match="tei:app">
     <xsl:choose>
-      <xsl:when test="./tei:lem">
-        <a class="app" onclick="showApp('{generate-id()}');">
-          <xsl:apply-templates select="tei:lem"/>  
-        </a> 
+      <xsl:when test="./tei:lem[contains(@wit, $witness]">
+        HURRA
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:lacunaStart">
         <a class="app" onclick="showApp('{generate-id()}');">
