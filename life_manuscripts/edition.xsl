@@ -347,10 +347,11 @@
       
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
         <xsl:choose>
-          <xsl:when test="child[name()='tei:witStart']">
+          <xsl:when test="child[name('tei:witStart')]">
             hurra
           </xsl:when>
-          <xsl:when test="">
+          <xsl:when test="child">
+            NEIN
           </xsl:when>
         </xsl:choose>
       </xsl:when>
