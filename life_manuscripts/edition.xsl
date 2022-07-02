@@ -51,7 +51,6 @@
   <xsl:template match="/">
     <header style="background-image:url('/pictures/busnaya_snippet40.png');  background-size: cover; height:200px; padding-top: 35px; padding-left: 10px;">
       <h2>
-      12
         <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/."/>
       </h2>
       <h3>
@@ -249,8 +248,6 @@
               <span onclick="this.parentElement.style.display='none'" class="w3-display-topright">
               X
               </span>
-              
-
               <xsl:choose>
                 <xsl:when test="./tei:rdg/tei:lacunaStart">
                   <xsl:for-each select="tei:rdg">
@@ -282,20 +279,7 @@
 
                 <xsl:otherwise>
                   <p>
-                    <xsl:attribute name="style">
-                      <xsl:value-of select="$fontstyle"/>
-                    </xsl:attribute>
-                    <xsl:apply-templates select="tei:lem" mode="app"/>
-                    ]
-                    <br/>
                   </p>
-                  <hr/>
-                  <span>
-                    <xsl:attribute name="style">
-                      <xsl:value-of select="$fontstyle2"/>
-                    </xsl:attribute>
-                    <xsl:apply-templates select="tei:rdg"/>
-                  </span>
                 </xsl:otherwise>
               </xsl:choose>
 
