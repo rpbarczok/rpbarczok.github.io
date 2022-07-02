@@ -347,42 +347,45 @@
       
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
         
-        <xsl:choose>
-          
-          <xsl:when test="/tei:lacunaStart">
-            [lacuna starts]
-          </xsl:when>
-          
-          <xsl:when test="/tei:lacunaEnd">
-            [lacuna ends]
-          </xsl:when>
-          
-          <xsl:when test="/tei:witStart">
-            [<xsl:value-of select="$witness"/> starts]
-          </xsl:when>
-          
-          <xsl:when test="/tei:witEnd">
-            [<xsl:value-of select="$witness"/> ends]
-          </xsl:when>
-          
-          <xsl:otherwise>
-            witHurra
-          </xsl:otherwise>
-        
+        <xsl:choose>    
+          <apply-templates select="."/>
         </xsl:choose>
       
       </xsl:when>
       
-      <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">  
-        <xsl:when test="/tei:lacunaStart | /tei:lacunaEnd | /tei:witStart | /tei:witEnd">
-          <a class="app" onclick="showApp('{generate-id()}');">
-            notwithurra 
-          </a>
-        </xsl:when>
+      <xsl:when test="./tei:rdg[not(contains(@wit, $witness))] and node() = ''">  
+        <a class="app" onclick="showApp('{generate-id()}');">
+          * 
+        </a>
       </xsl:when>
       
     </xsl:choose>
   </xsl:template>
+
+  <xsl:template match="tei:lacunaStart">
+    <xsl:when test="../[contains(@wit, $witness)]">
+      [lacuna starts]
+    </xsl:when>
+  </xsl:template>
+
+  <xsl:template match="tei:lacunaEnd">
+    <xsl:when test="../[contains(@wit, $witness)]">
+      [lacuna ends]
+    </xsl:when>
+  </xsl:template>
+
+  <xsl:template match="tei:witStart">
+    <xsl:when test="../[contains(@wit, $witness)]">
+      [<xsl:value-of select="$witness"/> starts]
+    </xsl:when>
+  </xsl:template>
+
+  <xslt:template match="tei:witEnd">
+    <xsl:when test="../[contains(@wit, $witness)]">
+        [<xsl:value-of select="$witness"/> ends]
+    </xsl:when>
+  </xsl:template>
+
 
   <xsl:template match="tei:lem">
     <xsl:choose>
