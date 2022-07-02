@@ -338,7 +338,7 @@
   <xsl:template match="tei:app">
     <xsl:choose>
       <xsl:when test="./tei:lem[contains(@wit, $witness)]">
-        Hurra
+        lemHurra
       </xsl:when>
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
 <!--        <xsl:choose>
@@ -355,16 +355,17 @@
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
           <xsl:otherwise> -->
-            Hurra
+            witHurra
 <!--          </xsl:otherwise>
         </xsl:choose> -->
       </xsl:when>
       <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">
-        <xsl:when test="./tei:rdg/tei:lacunaStart">
+<!--        <xsl:when test="./tei:rdg/tei:lacunaStart">
           <a class="app" onclick="showApp('{generate-id()}');">
             *  
           </a>
-        </xsl:when>
+        </xsl:when> -->
+        notwithurra
       </xsl:when>
     </xsl:choose>
   </xsl:template>
