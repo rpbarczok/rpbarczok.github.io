@@ -337,7 +337,7 @@
 
   <xsl:template match="tei:app">
     <xsl:choose>
-      <xsl:when test="./tei:lem[contains(@wit, $witness]">
+      <xsl:when test="./tei:lem[contains(@wit, $witness)]">
         HURRA
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:lacunaStart">
