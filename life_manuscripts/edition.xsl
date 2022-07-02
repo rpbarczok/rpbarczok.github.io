@@ -380,7 +380,7 @@
     </xsl:when>
   </xsl:template>
 
-  <xslt:template match="tei:witEnd">
+  <xsl:template match="tei:witEnd">
     <xsl:when test="../[contains(@wit, $witness)]">
         [<xsl:value-of select="$witness"/> ends]
     </xsl:when>
