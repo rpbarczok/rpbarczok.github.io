@@ -360,7 +360,7 @@
         </xsl:choose> -->
       </xsl:when>
       <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">
-        <xsl:when test="./tei:lacunaStart">
+        <xsl:when test="tei:lacunaStart">
 <!--          <a class="app" onclick="showApp('{generate-id()}');">
             *  
           </a> -->
