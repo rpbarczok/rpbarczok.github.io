@@ -346,7 +346,13 @@
       </xsl:when>
       
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
-        heureka
+        <xsl:choose>
+          <xsl:when test="child[name()='tei:witStart']">
+            hurra
+          </xsl:when>
+          <xsl:when test="">
+          </xsl:when>
+        </xsl:choose>
       </xsl:when>
       
       <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">  
@@ -356,7 +362,7 @@
       </xsl:when>
       
     </xsl:choose> 
-  </xsl:template> -->
+  </xsl:template>
 
  <!-- <xsl:template match="tei:lacunaStart">
     <xsl:when test="parent[contains(@wit, $witness)]">
