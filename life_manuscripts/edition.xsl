@@ -337,7 +337,7 @@
     [...]
   </xsl:template>
 
-<!--  <xsl:template match="tei:app">
+<xsl:template match="tei:app">
     
     <xsl:choose>
       
@@ -346,10 +346,12 @@
       </xsl:when>
       
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
-        <apply-templates select="."/>
+        <xsl:if test="Child::tei:witStart">
+          heureka
+        <xsl:if>
       </xsl:when>
       
-      <xsl:when test="./tei:rdg[not(contains(@wit, $witness))] and node() = ''">  
+      <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">  
         <a class="app" onclick="showApp('{generate-id()}');">
           * 
         </a>
@@ -376,11 +378,11 @@
     </xsl:when>
   </xsl:template> -->
 
-  <xsl:template match="tei:witEnd">
+<!--  <xsl:template match="tei:witEnd">
     <xsl:when test="../tei:witEnd[contains(@wit, $witness)]">
         [<xsl:value-of select="$witness"/> ends]
     </xsl:when>
-  </xsl:template>
+  </xsl:template> -->
 
 
   <xsl:template match="tei:lem">
