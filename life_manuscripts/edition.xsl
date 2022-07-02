@@ -6,6 +6,7 @@
   xmlns:exsl="http://exslt.org/common"
     extension-element-prefixes="exsl">
 
+  <xsl:import href="exsl.xsl" />
   <xsl:output method="html" />
 
   <!-- Variablen -->
