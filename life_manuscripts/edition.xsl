@@ -338,14 +338,14 @@
   <xsl:template match="tei:app">
     <xsl:choose>
       <xsl:when test="./tei:lem[contains(@wit, $witness)]">
-        <xsl:apply-templates select="tei:lem"/>
+        Hurra
       </xsl:when>
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
         Hurra
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:lacunaStart">
         <xsl:choose>
-          <xsl:when test="./tei:rdg/tei:lacunaStart[contains(@wit, $witness)]">
+          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
             [lacuna starts]
           </xsl:when>
           <xsl:otherwise>
@@ -356,7 +356,7 @@
         </xsl:choose>
       <xsl:when test="./tei:rdg/tei:lacunaEnd">
         <xsl:choose>
-          <xsl:when test="./tei:rdg/tei:lacunaEbd[contains(@wit, $witness)]">
+          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
             [lacuna ends]
           </xsl:when>
           <xsl:otherwise>
@@ -368,7 +368,7 @@
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:witStart">
         <xsl:choose>
-          <xsl:when test="./tei:rdg/tei:witStart[contains(@wit, $witness)]">
+          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
             [<xsl:value-of select="$witness"/> starts]
           </xsl:when>
           <xsl:otherwise>
@@ -380,7 +380,7 @@
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:witEnd">
         <xsl:choose>
-          <xsl:when test="./tei:rdg/tei:witEnd[contains(@wit, $witness)]">
+          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
           <xsl:otherwise>
