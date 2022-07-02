@@ -86,7 +86,7 @@
 
         </div>
         <div class="w3-col s10  w3-card-4 w3-white w3-padding selectableFont" style="direction: rtl; font-size: 2em; font-family: EastSyriacAdiabene;">
-          <xsl:apply-templates select="$flattened/node()"/>
+          <xsl:apply-templates select="."/>
         </div>
         <div class="w3-col s1 w3-container">
 
