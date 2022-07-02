@@ -60,168 +60,166 @@
       </h3>
     </header>
     <main>
-<div class="w3-container w3-light-gray">
-      <div class ="w3-panel">
-        <select id="witness" name="witness" onchange="displayResult(this.value)">
-          <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
-            <option>
-              <xsl:attribute name="value">
-                <xsl:value-of select="./@xml:id"/>
-              </xsl:attribute>
-              <xsl:if test="./@xml:id = $witness">
-                <xsl:attribute name="selected">
-                  selected
+      <div class="w3-container w3-light-gray">
+        <div class ="w3-panel">
+          <select id="witness" name="witness" onchange="displayResult(this.value)">
+            <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
+              <option>
+                <xsl:attribute name="value">
+                  <xsl:value-of select="./@xml:id"/>
                 </xsl:attribute>
-              </xsl:if>
-              <xsl:value-of select="./@xml:id"/>  =
-              <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:settlement/."/>,
-              <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:repository/."/>,
-              <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>, part of the
-              <xsl:value-of select="../tei:head/text()"/>
-            </option>
-          </xsl:for-each>
-        </select>
-      </div>
-      <div>
-        <ul>
-          <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
-            <li>
-              <xsl:value-of select="./@xml:id"/> =
-              <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:settlement/."/>,
-              <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:repository/."/>,
-              <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>, part of the
-              <xsl:value-of select="../tei:head/text()"/>
-            </li>
-          </xsl:for-each>
-        </ul>
-      </div>
-      <div class="w3-panel">
-        <div class="w3-row">
-          <div class="w3-col s1 w3-padding">
-          </div>
-          <div class="w3-col s11 w3-padding">
-            <select id="font" name="font">
-	  	      <xsl:attribute name="onchange">
-              <xsl:value-of select="$jsfont"/>
-            </xsl:attribute>
-              <option value="EastSyriacAdiabene">
-                <xsl:if test="$font='EastSyriacAdiabene'">
+                <xsl:if test="./@xml:id = $witness">
                   <xsl:attribute name="selected">
                     selected
                   </xsl:attribute>
                 </xsl:if>
-                East Syriac Adiabene
+                <xsl:value-of select="./@xml:id"/>  =
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:settlement/."/>,
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:repository/."/>,
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>
               </option>
-              <option value="EastSyriacCtesiphon">
-                <xsl:if test="$font='EastSyriacCtesiphon'">
+            </xsl:for-each>
+          </select>
+        </div>
+        <div>
+          <ul>
+            <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listWit/tei:listWit/tei:witness">
+              <li>
+                <xsl:value-of select="./@xml:id"/> =
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:settlement/."/>,
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:repository/."/>,
+                <xsl:value-of select="tei:msDesc/tei:msIdentifier/tei:idno/."/>
+              </li>
+            </xsl:for-each>
+          </ul>
+        </div>
+        <div class="w3-panel">
+          <div class="w3-row">
+            <div class="w3-col s1 w3-padding">
+            </div>
+            <div class="w3-col s11 w3-padding">
+              <select id="font" name="font">
+	  	        <xsl:attribute name="onchange">
+                <xsl:value-of select="$jsfont"/>
+              </xsl:attribute>
+                <option value="EastSyriacAdiabene">
+                  <xsl:if test="$font='EastSyriacAdiabene'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                East Syriac Ctesiphon
-              </option>
-              <option value="EstrangeloAntioch">
-                <xsl:if test="$font='EstrangeloAntioch'">
+                  </xsl:if>
+                  East Syriac Adiabene
+                </option>
+                <option value="EastSyriacCtesiphon">
+                  <xsl:if test="$font='EastSyriacCtesiphon'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Estrangelo Antioch
-              </option>
-              <option value="EstrangeloEdessa">
-                <xsl:if test="$font='EstrangeloEdessa'">
+                  </xsl:if>
+                  East Syriac Ctesiphon
+                </option>
+                <option value="EstrangeloAntioch">
+                  <xsl:if test="$font='EstrangeloAntioch'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Estrangelo Edessa
-              </option>
-              <option value="EstrangeloMidyat">
-                <xsl:if test="$font='EstrangeloMidyat'">
+                  </xsl:if>
+                  Estrangelo Antioch
+                </option>
+                <option value="EstrangeloEdessa">
+                  <xsl:if test="$font='EstrangeloEdessa'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Estrangelo Midyat
-              </option>
-              <option value="EstrangeloNisibin">
-                <xsl:if test="$font='EstrangeloNisibin'">
+                  </xsl:if>
+                  Estrangelo Edessa
+                </option>
+                <option value="EstrangeloMidyat">
+                  <xsl:if test="$font='EstrangeloMidyat'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Estrangelo Nisibin
-              </option>
-              <option value="EstrangeloQuenneshrin">
-                <xsl:if test="$font='EstrangeloQuenneshrin'">
+                  </xsl:if>
+                  Estrangelo Midyat
+                </option>
+                <option value="EstrangeloNisibin">
+                  <xsl:if test="$font='EstrangeloNisibin'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Estrangelo Quenneshrin
-              </option>
-              <option value="EstrangeloTalada">
-                <xsl:if test="$font='EstrangeloTalada'">
+                  </xsl:if>
+                  Estrangelo Nisibin
+                </option>
+                <option value="EstrangeloQuenneshrin">
+                  <xsl:if test="$font='EstrangeloQuenneshrin'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Estrangelo Talada
-              </option>
-              <option value="EstrangeloTurAbdin">
-                <xsl:if test="$font='EstrangeloTurAbdin'">
+                  </xsl:if>
+                  Estrangelo Quenneshrin
+                </option>
+                <option value="EstrangeloTalada">
+                  <xsl:if test="$font='EstrangeloTalada'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Estrangelo TurAbdin
-              </option>
-              <option value="SertoBatnan">
-                <xsl:if test="$font='SertoBatnan'">
+                  </xsl:if>
+                  Estrangelo Talada
+                </option>
+                <option value="EstrangeloTurAbdin">
+                  <xsl:if test="$font='EstrangeloTurAbdin'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Serto Batnan
-              </option>
-              <option value="SertoJerusalem">
-                <xsl:if test="$font='SertoJerusalem'">
+                  </xsl:if>
+                  Estrangelo TurAbdin
+                </option>
+                <option value="SertoBatnan">
+                  <xsl:if test="$font='SertoBatnan'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Serto Jerusalem
-              </option>
-              <option value="SertoKharput">
-                <xsl:if test="$font='SertoKharput'">
+                  </xsl:if>
+                  Serto Batnan
+                </option>
+                <option value="SertoJerusalem">
+                  <xsl:if test="$font='SertoJerusalem'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Serto Kharput
-              </option>
-              <option value="SertoMalankara">
-                <xsl:if test="$font='SertoMalankara'">
+                  </xsl:if>
+                  Serto Jerusalem
+                </option>
+                <option value="SertoKharput">
+                  <xsl:if test="$font='SertoKharput'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Serto Malankara
-              </option>
-              <option value="SertoMardin">
-                <xsl:if test="$font='SertoMardin'">
+                  </xsl:if>
+                  Serto Kharput
+                </option>
+                <option value="SertoMalankara">
+                  <xsl:if test="$font='SertoMalankara'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
-                Serto Mardin
-              </option>
-              <option value="SertoUrhoy">
-                <xsl:if test="$font='SertoUrhoy'">
+                  </xsl:if>
+                  Serto Malankara
+                </option>
+                <option value="SertoMardin">
+                  <xsl:if test="$font='SertoMardin'">
                     <xsl:attribute name="selected">
-                    selected
+                      selected
                     </xsl:attribute>
-                </xsl:if>
+                  </xsl:if>
+                  Serto Mardin
+                </option>
+                <option value="SertoUrhoy">
+                  <xsl:if test="$font='SertoUrhoy'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
                 Serto Urhoy
               </option>
             </select>    
