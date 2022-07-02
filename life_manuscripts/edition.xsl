@@ -346,11 +346,7 @@
       </xsl:when>
       
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
-        
-        <xsl:choose>    
-          <apply-templates select="."/>
-        </xsl:choose>
-      
+        <apply-templates select="."/>
       </xsl:when>
       
       <xsl:when test="./tei:rdg[not(contains(@wit, $witness))] and node() = ''">  
