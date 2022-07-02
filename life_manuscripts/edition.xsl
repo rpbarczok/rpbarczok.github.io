@@ -341,61 +341,35 @@
         Hurra
       </xsl:when>
       <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
-        Hurra
-      </xsl:when>
-      <xsl:when test="./tei:rdg/tei:lacunaStart">
         <xsl:choose>
-          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
+          <xsl:when test="./tei:lacunaStart">
             [lacuna starts]
           </xsl:when>
-          <xsl:otherwise>
-            <a class="app" onclick="showApp('{generate-id()}');">
-              *  
-            </a>
-          </xsl:otherwise>
-        </xsl:choose>
-      <xsl:when test="./tei:rdg/tei:lacunaEnd">
-        <xsl:choose>
-          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
+          <xsl:when test="./tei:lacunaEnd">
             [lacuna ends]
           </xsl:when>
-          <xsl:otherwise>
-            <a class="app" onclick="showApp('{generate-id()}');">
-              *  
-            </a>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:when test="./tei:rdg/tei:witStart">
-        <xsl:choose>
-          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
+          <xsl:when test="./tei:witStart">
             [<xsl:value-of select="$witness"/> starts]
           </xsl:when>
-          <xsl:otherwise>
-            <a class="app" onclick="showApp('{generate-id()}');">
-              *  
-            </a>
-          </xsl:otherwise>
-        </xsl:choose>      
-      </xsl:when>
-      <xsl:when test="./tei:rdg/tei:witEnd">
-        <xsl:choose>
-          <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
+          <xsl:when test="./tei:witEnd">
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
           <xsl:otherwise>
-            <a class="app" onclick="showApp('{generate-id()}');">
-              *  
-            </a>
+            Hurra
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
+      <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">
+        <xsl:when test="./tei:lacunaStart | ./tei:lacunaEnd | ./tei:witStart | ./tei:witEnd">
+          <a class="app" onclick="showApp('{generate-id()}');">
+            *  
+          </a>
+        </xsl:when>
+      </xsl:when>
     </xsl:choose>
-
   </xsl:template>
 
   <xsl:template match="tei:lem">
-
     <xsl:choose>
       <xsl:when test="text() != ''">
          <strong>
