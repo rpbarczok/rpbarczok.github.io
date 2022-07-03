@@ -400,26 +400,27 @@
             </a>           
           </xsl:otherwise>
         </xsl:choose>
-      </xsl:when>      
+      </xsl:when>
     </xsl:choose> 
   </xsl:template>
 
   <xsl:template match="tei:lem">
-    <xsl:choose>
-      <xsl:when test="text() != ''">
-         <strong>
-         ˺
-         </strong>
-         <xsl:apply-templates select="node()"/>
-         <strong>
-         ˹
-         </strong>
-      </xsl:when>
-      <xsl:otherwise>
-        *
-      </xsl:otherwise>
-    </xsl:choose>
-
+    <xsl:if test="./tei:lem[contains(@wit, $witness)]">
+      <xsl:choose>
+        <xsl:when test="text() != ''">
+          <strong>
+          ˺
+          </strong>
+          <xsl:apply-templates select="node()"/>
+          <strong>
+          ˹
+          </strong>
+        </xsl:when>
+        <xsl:otherwise>
+          *
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="tei:rdg">
