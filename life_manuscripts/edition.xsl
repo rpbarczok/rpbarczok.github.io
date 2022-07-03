@@ -290,14 +290,14 @@
                         ]
                         <br/>
                       </p>
-                      <hr/>
+<!--                      <hr/>
                       <span>
                         <xsl:attribute name="style">
                           <xsl:value-of select="$fontstyle2"/>
                         </xsl:attribute>
                         <xsl:apply-templates select="tei:rdg" mode="app2"/>
                       </span>
-                    </xsl:when>
+                    </xsl:when> -->
                     <!-- If the the reading of the Variant is not part of the lem-->
                     <xsl:when test="tei:lem[not(contains(@wit, $witness))]">
                       <p>
@@ -308,14 +308,14 @@
                         ]
                         <br/>
                       </p>
-                      <hr/>
+<!--                      <hr/>
                       <span>
                         <xsl:attribute name="style">
                           <xsl:value-of select="$fontstyle2"/>
                         </xsl:attribute>
                         <xsl:apply-templates select="tei:rdg" mode="app2"/>
-                        <!-- when lem has witnesses that are not the chosen witness -->
-                      </span>
+                        
+                      </span>  -->
                     </xsl:when>
 
                   </xsl:choose>
@@ -404,7 +404,7 @@
     </xsl:choose> 
   </xsl:template>
 
-  <xsl:template match="tei:lem | tei:rdg">
+  <xsl:template match="tei:lem">
     <xsl:choose>
       <xsl:when test="text() != ''">
          <strong>
@@ -421,6 +421,25 @@
     </xsl:choose>
 
   </xsl:template>
+
+  <xsl:template match="tei:rdg">
+    <xsl:choose>
+      <xsl:when test="text() != ''">
+         <strong>
+         ˺
+         </strong>
+         <xsl:apply-templates select="node()"/>
+         <strong>
+         ˹
+         </strong>
+      </xsl:when>
+      <xsl:otherwise>
+        *
+      </xsl:otherwise>
+    </xsl:choose>
+
+  </xsl:template>
+
 
   <xsl:template match="tei:lem | tei:rdg" mode="app1">
     <xsl:if test="text() != ''">
