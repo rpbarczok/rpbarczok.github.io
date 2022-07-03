@@ -400,14 +400,7 @@
             </a>           
           </xsl:otherwise>
         </xsl:choose>
-      </xsl:when>
-      
-      <xsl:when test="./tei:rdg[not(contains(@wit, $witness))]">  
-        <a class="app" onclick="showApp('{generate-id()}');">
-          * 
-        </a>
-      </xsl:when>
-      
+      </xsl:when>      
     </xsl:choose> 
   </xsl:template>
 
