@@ -28,7 +28,7 @@
   <xsl:template match="/">
     <header style="background-image:url('/pictures/busnaya_snippet40.png');  background-size: cover; height:200px; padding-top: 35px; padding-left: 10px;">
       <h2>
-        1
+        2
         <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/."/>
       </h2>
       <h3>
@@ -249,7 +249,7 @@
                     <xsl:attribute name="style">
                       <xsl:value-of select="$fontstyle2"/>
                     </xsl:attribute>
-                    <xsl:apply-templates select="tei:rdg"/>
+                    <xsl:apply-templates select="tei:rdg" mode="app"/>
                   </span>
                 </xsl:otherwise>
               </xsl:choose>

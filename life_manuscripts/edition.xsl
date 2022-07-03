@@ -280,11 +280,22 @@
 
                 <xsl:otherwise>
                   <p>
+                    <xsl:attribute name="style">
+                      <xsl:value-of select="$fontstyle"/>
+                    </xsl:attribute>
+                    <xsl:apply-templates select="tei:lem | tei:rdg" mode="app"/>
+                    ]
+                    <br/>
                   </p>
+                  <hr/>
+                  <span>
+                    <xsl:attribute name="style">
+                      <xsl:value-of select="$fontstyle2"/>
+                    </xsl:attribute>
+                    <xsl:apply-templates select="tei:lem | tei:rdg" mode="app"/>
+                  </span>
                 </xsl:otherwise>
-              
               </xsl:choose>
-
             </div>
           </xsl:for-each>        
         </div>
@@ -338,9 +349,7 @@
   </xsl:template>
 
 <xsl:template match="tei:app">
-    
     <xsl:choose>
-      
       <xsl:when test="./tei:lem[contains(@wit, $witness)]">
         <a class="app" onclick="showApp('{generate-id()}');">
           <xsl:apply-templates select="tei:lem"/>  
@@ -394,27 +403,29 @@
     </xsl:choose>
 
   </xsl:template>
-  
-  <xsl:template match="tei:lem" mode="app">
-    <xsl:if test="text() != ''">
-      <xsl:apply-templates select="node()"/>
-    </xsl:if>
-  </xsl:template>
 
-
-  <xsl:template match="tei:rdg" mode= "app">
+  <xsl:template match="tei:rdg | tei:lem" mode= "app">
     <xsl:choose>
-      <xsl:when test="text() != ''">
-         <strong>
-         ˺
-         </strong>
-         <xsl:apply-templates select="node()"/>
-         <strong>
-         ˹
-         </strong>
+      <xsl:when test="self[contains(@wit,$wit)]">
+        <xsl:if test="text() != ''">
+          <xsl:apply-templates select="node()"/>
+        </xsl:if>
       </xsl:when>
       <xsl:otherwise>
-        *
+        <xsl:choose>
+          <xsl:when test="text() != ''">
+            <strong>
+            ˺
+            </strong>
+            <xsl:apply-templates select="node()"/>
+            <strong>
+            ˹
+            </strong>
+          </xsl:when>
+          <xsl:otherwise>
+            *
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
