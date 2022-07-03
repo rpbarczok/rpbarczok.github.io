@@ -300,13 +300,6 @@
                     </xsl:when>
                     <!-- If the the reading of the Variant is not part of the lem-->
                     <xsl:when test="tei:lem[not(contains(@wit, $witness))]">
-                      <xsl:choose>
-                        <xsl:when test>
-                        <xsl:when>
-                      </xsl:choose>
-
-
-
                       <p>
                         <xsl:attribute name="style">
                           <xsl:value-of select="$fontstyle"/>
@@ -321,6 +314,7 @@
                           <xsl:value-of select="$fontstyle2"/>
                         </xsl:attribute>
                         <xsl:apply-templates select="tei:rdg" mode="app2"/>
+                        <!-- when lem has witnesses that are not the chosen witness -->
                       </span>
                     </xsl:when>
 
