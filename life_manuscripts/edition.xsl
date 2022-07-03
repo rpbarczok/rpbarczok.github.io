@@ -373,54 +373,54 @@
     [...]
   </xsl:template>
 
-<xsl:template match="tei:app">
-    <xsl:choose>
-      <xsl:when test="./tei:lem[contains(@wit, $witness)]">
-        <a class="app" onclick="showApp('{generate-id()}');">
-          <xsl:apply-templates select="tei:lem"/>  
-        </a> 
-      </xsl:when>
-      <xsl:when test="./tei:rdg[contains(@wit, $witness)]">
-        <xsl:choose>
-          <xsl:when test="tei:rdg/tei:lacunaStart">
-            [Lacuna starts]
-          </xsl:when>
-          <xsl:when test="tei:rdg/tei:lacunaEnd">
-            [Lacuna ends]
-          </xsl:when>
-          <xsl:when test="tei:rdg/tei:witStart">
-            [<xsl:value-of select="$witness"/> starts]
-          </xsl:when>
-          <xsl:when test="tei:rdg/tei:witEnd">
-            [<xsl:value-of select="$witness"/> ends]
-          </xsl:when>
-          <xsl:otherwise>
-            <a class="app" onclick="showApp('{generate-id()}');">
-              <xsl:apply-templates select="tei:rdg"/>  
-            </a>           
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-    </xsl:choose> 
+  <xsl:template match="tei:app">
+    <xsl:for-each select="self::child">
+      <xsl:choose>
+        <xsl:when test="tei:lem[contains(@wit, $witness)]">
+          <a class="app" onclick="showApp('{generate-id()}');">
+            <xsl:apply-templates select="tei:lem"/>
+          </a> 
+        </xsl:when>
+        <xsl:when test="tei:rdg[contains(@wit, $witness)]">
+          <xsl:choose>
+            <xsl:when test="tei:rdg/tei:lacunaStart">
+              [Lacuna starts]
+            </xsl:when>
+            <xsl:when test="tei:rdg/tei:lacunaEnd">
+              [Lacuna ends]
+            </xsl:when>
+            <xsl:when test="tei:rdg/tei:witStart">
+              [<xsl:value-of select="$witness"/> starts]
+            </xsl:when>
+            <xsl:when test="tei:rdg/tei:witEnd">
+              [<xsl:value-of select="$witness"/> ends]
+            </xsl:when>
+            <xsl:otherwise>
+              <a class="app" onclick="showApp('{generate-id()}');">
+                <xsl:apply-templates select="tei:rdg"/>  
+              </a>           
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when> 
+      </xsl:choose>
+    </xsl:for-each>
   </xsl:template>
 
   <xsl:template match="tei:lem">
-    <xsl:if test="./tei:lem[contains(@wit, $witness)]">
-      <xsl:choose>
-        <xsl:when test="text() != ''">
-          <strong>
+    <xsl:choose>
+      <xsl:when test="text() != ''">
+        <strong>
           ˺
-          </strong>
-          <xsl:apply-templates select="node()"/>
-          <strong>
+        </strong>
+        <xsl:apply-templates select="node()"/>
+        <strong>
           ˹
-          </strong>
-        </xsl:when>
-        <xsl:otherwise>
+        </strong>
+      </xsl:when>
+      <xsl:otherwise>
           *
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="tei:rdg">
