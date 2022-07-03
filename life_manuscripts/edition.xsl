@@ -280,6 +280,7 @@
 
                 <xsl:otherwise>
                   <xsl:choose>
+                    <!-- If the the reading of the choosen manuscript is part of Lem-->
                     <xsl:when test="tei:lem[contains(@wit, $witness)]">
                       <p>
                         <xsl:attribute name="style">
@@ -297,9 +298,25 @@
                         <xsl:apply-templates select="tei:rdg" mode="app2"/>
                       </span>
                     </xsl:when>
-                    <xsl:when test="tei:rpg[contains(@wit, $witness)]">
-                      
+                    <!-- If the the reading of the Variant is not part of the reading: two possibilities: lem is without witness, lem is with witness-->
+                    <xsl:when test="tei:lem[not(contains(@wit, $witness))]">
+                      <p>
+                        <xsl:attribute name="style">
+                          <xsl:value-of select="$fontstyle"/>
+                        </xsl:attribute>
+                        <xsl:apply-templates select="tei:rpg" mode="app1"/>
+                        ]
+                        <br/>
+                      </p>
+                      <hr/>
+                      <span>
+                        <xsl:attribute name="style">
+                          <xsl:value-of select="$fontstyle2"/>
+                        </xsl:attribute>
+                        <xsl:apply-templates select="tei:rdg" mode="app2"/>
+                      </span>
                     </xsl:when>
+
                   </xsl:choose>
                 </xsl:otherwise>
               </xsl:choose>
