@@ -374,7 +374,7 @@
   </xsl:template>
 
   <xsl:template match="tei:app">
-    <xsl:for-each select="self::child">
+    <xsl:for-each select="child::*">
       <xsl:choose>
         <xsl:when test="tei:lem[contains(@wit, $witness)]">
           <a class="app" onclick="showApp('{generate-id()}');">
