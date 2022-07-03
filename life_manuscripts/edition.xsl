@@ -296,8 +296,8 @@
                           <xsl:value-of select="$fontstyle2"/>
                         </xsl:attribute>
                         <xsl:apply-templates select="tei:rdg" mode="app2"/>
-                      </span>
-                    </xsl:when> -->
+                      </span> -->
+                    </xsl:when>
                     <!-- If the the reading of the Variant is not part of the lem-->
                     <xsl:when test="tei:lem[not(contains(@wit, $witness))]">
                       <p>
