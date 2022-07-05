@@ -274,7 +274,6 @@
     </p>
   </xsl:template>
 
-	
 <!-- Template head-->
 
   <xsl:template match="tei:head">
@@ -362,7 +361,7 @@
   </xsl:template>
 
 
-  <xsl:template match="tei:rdg">
+  <xsl:template match="tei:rdg" mode="app">
     <xsl:value-of select="@wit"/>
     :
     <xsl:choose>
