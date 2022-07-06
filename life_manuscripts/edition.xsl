@@ -342,6 +342,9 @@
     </p>
   </xsl:template>
 
+  <xsl:template match="tei:pb">
+    <xsl:if test="contains(@wit, $witness)"> [<xsl:value-of select="@n"/>] </xsl:if>
+  </xsl:template>
 	
 <!-- Template head-->
 
