@@ -239,7 +239,7 @@
             <xsl:value-of select="$fontstyle"/>
           </xsl:attribute>
 
-          <xsl:apply-templates select="//tei:text"/>
+          <xsl:apply-templates select="exsl:node-set($flattened)/node()"/>
         
         </div>
         
