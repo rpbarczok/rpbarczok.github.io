@@ -374,37 +374,32 @@
   </xsl:template>
 
   <xsl:template match="tei:app">
-    <xsl:choose>
-      <xsl:when test="tei:lem[contains(@wit, $witness)]">
-        <a class="app" onclick="showApp('{generate-id()}');">
-          <xsl:apply-templates select="tei:lem"/>
-        </a> 
-      </xsl:when>
-      <xsl:when test="tei:rdg[contains(@wit, $witness)]">
+    <xsl:for-each select="../tei:rdg | ../tei:lem">
+      <xsl:if test="contains(@wit, $witness)">
         <xsl:choose>
-          <xsl:when test="tei:rdg/tei:lacunaStart">
+          <xsl:when test="tei:lacunaStart">
             [Lacuna starts]
           </xsl:when>
-          <xsl:when test="tei:rdg/tei:lacunaEnd">
+          <xsl:when test="tei:lacunaEnd">
             [Lacuna ends]
           </xsl:when>
-          <xsl:when test="tei:rdg/tei:witStart">
+          <xsl:when test="tei:witStart">
             [<xsl:value-of select="$witness"/> starts]
           </xsl:when>
-          <xsl:when test="tei:rdg/tei:witEnd">
+          <xsl:when test="tei:witEnd">
             [<xsl:value-of select="$witness"/> ends]
           </xsl:when>
           <xsl:otherwise>
             <a class="app" onclick="showApp('{generate-id()}');">
-              <xsl:apply-templates select="tei:rdg"/>  
-            </a>           
+              <xsl:apply-templates select="tei:lem | tei:rdg"/>
+            </a> 
           </xsl:otherwise>
         </xsl:choose>
-      </xsl:when> 
-    </xsl:choose>
+      </xsl:if> 
+    </xsl:for-each>
   </xsl:template>
 
-  <xsl:template match="tei:lem">
+  <xsl:template match="tei:lem | tei:rdg">
     <xsl:choose>
       <xsl:when test="text() != ''">
         <strong>
@@ -419,24 +414,6 @@
           *
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:template>
-
-  <xsl:template match="tei:rdg">
-    <xsl:choose>
-      <xsl:when test="text() != ''">
-         <strong>
-         ˺
-         </strong>
-         <xsl:apply-templates select="node()"/>
-         <strong>
-         ˹
-         </strong>
-      </xsl:when>
-      <xsl:otherwise>
-        *
-      </xsl:otherwise>
-    </xsl:choose>
-
   </xsl:template>
 
 
