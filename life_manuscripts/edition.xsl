@@ -380,7 +380,7 @@
     <xsl:choose>
       <xsl:when test="tei:lem[contains(@wit, $witness)]">
         <a class="app" onclick="showApp('{generate-id()}');">
-          <xsl:apply-templates select="tei:lem or tei:rdg"/>
+          <xsl:apply-templates select="tei:lem"/>
         </a>
       </xsl:when>
       <xsl:otherwise>
