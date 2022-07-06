@@ -395,7 +395,6 @@
               </xsl:when>
               <xsl:when test="child::tei:witStart">
                 [<xsl:value-of select="$witness"/> starts]
-                <br/>
               </xsl:when>
               <xsl:when test="child::tei:witEnd">
                 [<xsl:value-of select="$witness"/> ends]
@@ -447,14 +446,20 @@
   </xsl:template>
 
 
-  <xsl:template match="tei:lem | tei:rdg" mode="app1">
+  <xsl:template match="tei:lem" mode="app1">
+    <xsl:if test="text() != ''">
+      <xsl:apply-templates select="node()"/>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="tei:rdg" mode="app1">
     <xsl:if test="text() != ''">
       <xsl:apply-templates select="node()"/>
     </xsl:if>
   </xsl:template>
 
 
-  <xsl:template match="tei:rdg | tei:lem" mode="app2">
+  <xsl:template match="tei:lem" mode="app2">
     <xsl:value-of select="@wit"/>
     :
     <xsl:choose>
@@ -471,5 +476,25 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+
+  <xsl:template match="tei:rdg" mode="app2">
+    <xsl:value-of select="@wit"/>
+    :
+    <xsl:choose>
+      <xsl:when test="text() != ''">
+        <p style="direction: rtl;"><xsl:apply-templates select="node()"/></p>
+      </xsl:when>
+      <xsl:when test="./@type='nonlegible'">
+        [...]
+        <br/>
+      </xsl:when>
+      <xsl:otherwise>
+        om.
+        <br/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+
 
 </xsl:transform>
