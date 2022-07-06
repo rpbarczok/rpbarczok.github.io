@@ -374,32 +374,58 @@
   </xsl:template>
 
   <xsl:template match="tei:app">
-    <xsl:for-each select="../tei:rdg | ../tei:lem">
-      <xsl:if test="contains(@wit, $witness)">
-        <xsl:choose>
-          <xsl:when test="tei:lacunaStart">
-            [Lacuna starts]
-          </xsl:when>
-          <xsl:when test="tei:lacunaEnd">
-            [Lacuna ends]
-          </xsl:when>
-          <xsl:when test="tei:witStart">
-            [<xsl:value-of select="$witness"/> starts]
-          </xsl:when>
-          <xsl:when test="tei:witEnd">
-            [<xsl:value-of select="$witness"/> ends]
-          </xsl:when>
-          <xsl:otherwise>
-            <a class="app" onclick="showApp('{generate-id()}');">
-              <xsl:apply-templates select="tei:lem | tei:rdg"/>
-            </a> 
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:if> 
-    </xsl:for-each>
+    <xsl:choose>
+      <xsl:when test="../tei:lem[contains(@wit, $witness)]">
+        <a class="app" onclick="showApp('{generate-id()}');">
+          <xsl:apply-templates select="tei:lem or tei:rdg"/>
+        </a>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:for-each select="../tei:rdg">
+          <xsl:if test="contains(@wit, $witness)">
+            <xsl:choose>
+              <xsl:when test="./tei:lacunaStart">
+                [Lacuna starts]
+              </xsl:when>
+              <xsl:when test="./tei:lacunaEnd">
+                [Lacuna ends]
+              </xsl:when>
+              <xsl:when test="./tei:witStart">
+                [<xsl:value-of select="$witness"/> starts]
+              </xsl:when>
+              <xsl:when test="./tei:witEnd">
+                [<xsl:value-of select="$witness"/> ends]
+              </xsl:when>
+              <xsl:otherwise>
+                <a class="app" onclick="showApp('{generate-id()}');">
+                  <xsl:apply-templates select="tei:rdg"/>
+                </a> 
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="tei:lem | tei:rdg">
+  <xsl:template match="tei:lem">
+    <xsl:choose>
+      <xsl:when test="text() != ''">
+        <strong>
+          ˺
+        </strong>
+        <xsl:apply-templates select="node()"/>
+        <strong>
+          ˹
+        </strong>
+      </xsl:when>
+      <xsl:otherwise>
+          *
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="tei:rdg">
     <xsl:choose>
       <xsl:when test="text() != ''">
         <strong>
