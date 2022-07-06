@@ -350,14 +350,6 @@
     </xsl:if>
   </xsl:template>
 
-
-<!-- Template paragraph-->
-  <xsl:template match="tei:p">
-    <p>
-      <xsl:apply-templates select="node()"/>
-    </p>
-  </xsl:template>
-
   <!-- Template pages -->
   <xsl:template match="tei:pb">
     <xsl:if test="contains(@wit, $witness)"> [<xsl:value-of select="@n"/>] </xsl:if>
