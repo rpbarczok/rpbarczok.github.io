@@ -27,7 +27,6 @@
   <!-- Template 1: Gesamtdokument -->
   <xsl:template match="/">
     <header style="background-image:url('/pictures/busnaya_snippet40.png');  background-size: cover; height:200px; padding-top: 35px; padding-left: 10px;">
-      7
       <h2>
         <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/."/>
       </h2>

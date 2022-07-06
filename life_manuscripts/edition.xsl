@@ -394,7 +394,7 @@
               </xsl:when>
               <xsl:when test="child::tei:lacunaEnd">
                  [Lacuna ends]
-                <br>
+                <br/>
               </xsl:when>
               <xsl:when test="child::tei:witStart">
                 [<xsl:value-of select="$witness"/> starts]
