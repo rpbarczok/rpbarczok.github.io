@@ -378,25 +378,25 @@
 
   <xsl:template match="tei:app">
     <xsl:choose>
-      <xsl:when test="../tei:lem[contains(@wit, $witness)]">
+      <xsl:when test="tei:lem[contains(@wit, $witness)]">
         <a class="app" onclick="showApp('{generate-id()}');">
           <xsl:apply-templates select="tei:lem or tei:rdg"/>
         </a>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:for-each select="../tei:rdg">
+        <xsl:for-each select="tei:rdg">
           <xsl:if test="contains(@wit, $witness)">
             <xsl:choose>
-              <xsl:when test="./tei:lacunaStart">
+              <xsl:when test="child::tei:lacunaStart">
                 [Lacuna starts]
               </xsl:when>
-              <xsl:when test="./tei:lacunaEnd">
+              <xsl:when test="child::tei:lacunaEnd">
                 [Lacuna ends]
               </xsl:when>
-              <xsl:when test="./tei:witStart">
+              <xsl:when test="child::tei:witStart">
                 [<xsl:value-of select="$witness"/> starts]
               </xsl:when>
-              <xsl:when test="./tei:witEnd">
+              <xsl:when test="child::tei:witEnd">
                 [<xsl:value-of select="$witness"/> ends]
               </xsl:when>
               <xsl:otherwise>
