@@ -331,9 +331,25 @@
     </footer>
   </xsl:template>
 
-  <xsl:template match="tei:text">
-    <xsl:apply-templates select="node()"/>
+
+  <!-- lacuna text -->
+  <xsl:template match="text()">
+    <xsl:if test="((count(preceding::tei:witStart/..[@wit=$nrwitness]) + count(preceding::tei:witEnd/..[@wit=$nrwitness]) + count(preceding::tei:lacunaStart/..[@wit=$nrwitness]) + count(preceding::tei:lacunaEnd/..[@wit=$nrwitness])) mod 2 = 1)">
+      <xsl:value-of select="."/>
+    </xsl:if>
   </xsl:template>
+
+
+  <!-- Template: Überschriften -->
+  <xsl:template match="tei:head">
+    <span style="color:red;">
+      <xsl:apply-templates select="node()"/>
+    </span>
+    <xsl:if test="((count(preceding::tei:witStart/..[@wit=$nrwitness]) + count(preceding::tei:witEnd/..[@wit=$nrwitness]) + count(preceding::tei:lacunaStart/..[@wit=$nrwitness]) + count(preceding::tei:lacunaEnd/..[@wit=$nrwitness])) mod 2 = 1)">
+      <br/>
+    </xsl:if>
+  </xsl:template>
+
 
 <!-- Template paragraph-->
   <xsl:template match="tei:p">
@@ -342,16 +358,9 @@
     </p>
   </xsl:template>
 
+  <!-- Template pages -->
   <xsl:template match="tei:pb">
     <xsl:if test="contains(@wit, $witness)"> [<xsl:value-of select="@n"/>] </xsl:if>
-  </xsl:template>
-	
-<!-- Template head-->
-
-  <xsl:template match="tei:head">
-    <p class="head">
-      <xsl:apply-templates select="node()"/>
-    </p>
   </xsl:template>
   
   <!-- Template em -->
