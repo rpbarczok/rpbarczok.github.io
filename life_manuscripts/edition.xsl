@@ -395,8 +395,10 @@
               </xsl:when>
               <xsl:when test="child::tei:witStart">
                 [<xsl:value-of select="$witness"/> starts]
+                <br/>
               </xsl:when>
               <xsl:when test="child::tei:witEnd">
+                <br/>
                 [<xsl:value-of select="$witness"/> ends]
               </xsl:when>
               <xsl:otherwise>
