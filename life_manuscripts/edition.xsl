@@ -389,13 +389,16 @@
           <xsl:if test="contains(@wit, $witness)">
             <xsl:choose>
               <xsl:when test="child::tei:lacunaStart">
-                [Lacuna starts]
+                <br/>
+                [Lacuna starts] ...
               </xsl:when>
               <xsl:when test="child::tei:lacunaEnd">
-                [Lacuna ends]
+                 [Lacuna ends]
+                <br>
               </xsl:when>
               <xsl:when test="child::tei:witStart">
                 [<xsl:value-of select="$witness"/> starts]
+                <br/>
               </xsl:when>
               <xsl:when test="child::tei:witEnd">
                 [<xsl:value-of select="$witness"/> ends]
