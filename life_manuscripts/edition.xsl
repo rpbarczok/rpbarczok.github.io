@@ -344,10 +344,10 @@
   <xsl:template match="tei:head">
     <span style="color:red;">
       <xsl:apply-templates select="node()"/>
-    </span>
     <xsl:if test="((count(preceding::tei:witStart/..[@wit=$nrwitness]) + count(preceding::tei:witEnd/..[@wit=$nrwitness]) + count(preceding::tei:lacunaStart/..[@wit=$nrwitness]) + count(preceding::tei:lacunaEnd/..[@wit=$nrwitness])) mod 2 = 1)">
       <br/>
     </xsl:if>
+    </span>
   </xsl:template>
 
   <!-- Template pages -->
@@ -389,12 +389,9 @@
           <xsl:if test="contains(@wit, $witness)">
             <xsl:choose>
               <xsl:when test="child::tei:lacunaStart">
-                <br/>
-                [Lacuna starts] ...
+                [...lacuna...]
               </xsl:when>
               <xsl:when test="child::tei:lacunaEnd">
-                 [Lacuna ends]
-                <br/>
               </xsl:when>
               <xsl:when test="child::tei:witStart">
                 [<xsl:value-of select="$witness"/> starts]
