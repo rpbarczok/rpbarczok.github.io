@@ -269,15 +269,12 @@
                     <br/>
                   </xsl:for-each>
                 </xsl:when>
-                
                 <xsl:when test="./tei:rdg/tei:witStart">
                   <xsl:for-each select="tei:rdg">
                     <xsl:value-of select="@wit"/> starts.
                     <br/>
                   </xsl:for-each>
                 </xsl:when>
-
-
                 <xsl:otherwise>
                   <xsl:choose>
                     <!-- If the the reading of the choosen manuscript is part of Lem-->
@@ -290,34 +287,35 @@
                         ]
                         <br/>
                       </p>
-<!--                      <hr/>
+                      <hr/>
                       <span>
                         <xsl:attribute name="style">
                           <xsl:value-of select="$fontstyle2"/>
                         </xsl:attribute>
                         <xsl:apply-templates select="tei:rdg" mode="app2"/>
-                      </span> -->
+                      </span>
                     </xsl:when>
-                    <!-- If the the reading of the Variant is not part of the lem-->
-                    <xsl:when test="tei:lem[not(contains(@wit, $witness))]">
-                      <p>
-                        <xsl:attribute name="style">
-                          <xsl:value-of select="$fontstyle"/>
-                        </xsl:attribute>
-                        <xsl:apply-templates select="tei:rdg" mode="app1"/>
-                        ]
-                        <br/>
-                      </p>
-<!--                      <hr/>
-                      <span>
-                        <xsl:attribute name="style">
-                          <xsl:value-of select="$fontstyle2"/>
-                        </xsl:attribute>
-                        <xsl:apply-templates select="tei:rdg" mode="app2"/>
-                        
-                      </span>  -->
-                    </xsl:when>
-
+                    <xsl:otherwise>
+                      <xsl:for-each select="tei:rdg">
+                        <xsl:if test="contains(@wit, $witness)">
+                          <p>
+                            <xsl:attribute name="style">
+                              <xsl:value-of select="$fontstyle"/>
+                            </xsl:attribute>
+                            <xsl:apply-templates select="tei:rdg" mode="app1"/>
+                            ] 
+                            <br/>
+                          </p>
+                          <hr/>
+                          <span>
+                            <xsl:attribute name="style">
+                            <xsl:value-of select="$fontstyle2"/>
+                            </xsl:attribute>
+                            <xsl:apply-templates select="tei:rdg" mode="app2"/>                        
+                          </span>
+                        </xsl:if>
+                      </xsl:for-each>
+                    </xsl:otherwise>
                   </xsl:choose>
                 </xsl:otherwise>
               </xsl:choose>
