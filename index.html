@@ -1,34 +1,49 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>RB | Home</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-      <header style="background-image:url('pictures/busnaya_snippet40.png');  background-size: cover; height:200px; padding-top: 35px; padding-left: 10px;">
-	     <h1>Ralph <br/> Barczok</h1>
-      </header>
-      <main>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="cv.html">CV</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="busnaya.html">Vita of Joseph Busnaya</a></li>
-            </ul>
-          </div>
-        </nav>
-        <div style="padding-left: 10px;">
-          Ralph Barczok is currently data manager at a small family business in Tübingen. He studied Catholic Theology and the Christian Orient in Tübingen (main languages Syriac and Ethiopian). After graduation, he began to write his doctoral thesis on the Vita of Joseph Busnaya at the University of Konstanz under the supervision of Prof. Dr. Dorothea Weltecke. During that time he worked for the Research Centre for Aramaean Studies in Konstanz and later in Frankfurt. He finished his doctoral thesis in 2018.  
-        </div>
-      </main>
-    <footer>
-      <hr/>
-    </footer>
-  </body>
+<html>
+
+<head>
+  <title>RB | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <header
+    style="background-image:url('pictures/busnaya_snippet40.png');  background-size: cover; height:200px; padding-top: 35px; padding-left: 10px;">
+    <h1>Ralph <br /> Barczok</h1>
+  </header>
+  <main>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html" active>The Vita of Joseph Busnaya</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div style="padding-left: 10px;">
+      <p>
+        Currently I am working on a interactive digital edition of the Vita of Joseph Busnaya. Since the Syriac text
+        might be interesting to other scholars I publish my results and my experiments here on the fly. Therefore this
+        demo version is subject to constant changes. The text of the reconstruction is not yet finished. Also the
+        variants of the manuscripts have to be checked again.
+      <ul>
+        <li>Find a reconstructed text of the preface of the Vita with all variants in the TEI XML file <a
+            href="./life_all_variants/edition.html">here</a>.</li>
+        <li>Find a reconstructed text of the preface of the Vita without variants in orthography and punctuation <a
+            href="./life_not_all_variants/edition.html">here</a>.</li>
+        <!-- <li>Find a interactive text of the preface in which you can choose the text of the manuscript <a
+            href="./life_manuscripts/edition.html">here</a>. This version does not work yet properly. I try to implement
+          it with the help of <a href="http://exslt.org">exslt</a></li> -->
+      </ul>
+      </p>
+    </div>
+  </main>
+  <footer>
+    <hr />
+  </footer>
+</body>
+
 </html>
