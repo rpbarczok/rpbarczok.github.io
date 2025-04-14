@@ -172,9 +172,10 @@
           </div>
         </div>
       </div>
-      <div class="w3-row">
-        To see the critical apparatus with all variants, click on the marked text passages between ˹
-        and ˺ or on *.
+      <div class="w3-panel">
+        <div class="w3-row">
+          To see the critical apparatus with all variants, click on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>.
+        </div>
       </div>
       <div class="w3-row">
 
