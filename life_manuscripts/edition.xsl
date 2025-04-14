@@ -103,128 +103,133 @@
             </xsl:for-each>
           </ul>
         </div>
-      </div>
-      <div class="w3-panel">
-        <div class="w3-row">
-          <div class="w3-col s1 w3-padding">
-          </div>
-          <div class="w3-col s11 w3-padding">
-            <select id="font" name="font">
-              <xsl:attribute name="onchange">
-                <xsl:value-of select="$jsfont" />
-              </xsl:attribute>
-              <option value="EastSyriacAdiabene">
-                <xsl:if test="$font='EastSyriacAdiabene'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                East Syriac Adiabene </option>
-              <option value="EastSyriacCtesiphon">
-                <xsl:if test="$font='EastSyriacCtesiphon'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                East Syriac Ctesiphon </option>
-              <option value="EstrangeloAntioch">
-                <xsl:if test="$font='EstrangeloAntioch'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Estrangelo Antioch </option>
-              <option value="EstrangeloEdessa">
-                <xsl:if test="$font='EstrangeloEdessa'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Estrangelo Edessa </option>
-              <option value="EstrangeloMidyat">
-                <xsl:if test="$font='EstrangeloMidyat'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Estrangelo Midyat </option>
-              <option value="EstrangeloNisibin">
-                <xsl:if test="$font='EstrangeloNisibin'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Estrangelo Nisibin </option>
-              <option value="EstrangeloQuenneshrin">
-                <xsl:if test="$font='EstrangeloQuenneshrin'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Estrangelo Quenneshrin </option>
-              <option value="EstrangeloTalada">
-                <xsl:if test="$font='EstrangeloTalada'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Estrangelo Talada </option>
-              <option value="EstrangeloTurAbdin">
-                <xsl:if test="$font='EstrangeloTurAbdin'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Estrangelo TurAbdin </option>
-              <option value="SertoBatnan">
-                <xsl:if test="$font='SertoBatnan'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Serto Batnan </option>
-              <option value="SertoJerusalem">
-                <xsl:if test="$font='SertoJerusalem'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Serto Jerusalem </option>
-              <option value="SertoKharput">
-                <xsl:if test="$font='SertoKharput'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Serto Kharput </option>
-              <option value="SertoMalankara">
-                <xsl:if test="$font='SertoMalankara'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Serto Malankara </option>
-              <option value="SertoMardin">
-                <xsl:if test="$font='SertoMardin'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Serto Mardin </option>
-              <option value="SertoUrhoy">
-                <xsl:if test="$font='SertoUrhoy'">
-                  <xsl:attribute name="selected">
-                    selected
-                  </xsl:attribute>
-                </xsl:if>
-                Serto Urhoy </option>
-            </select>
+        <div class="w3-panel">
+          <div class="w3-row">
+            <div class="w3-col s1 w3-padding">
+            </div>
+            <div class="w3-col s11 w3-padding">
+
+              <select id="font" name="font">
+                <xsl:attribute name="onchange">
+                  <xsl:value-of select="$jsfont" />
+                </xsl:attribute>
+                <option value="EastSyriacAdiabene">
+                  <xsl:if test="$font='EastSyriacAdiabene'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  East Syriac Adiabene </option>
+                <option value="EastSyriacCtesiphon">
+                  <xsl:if test="$font='EastSyriacCtesiphon'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  East Syriac Ctesiphon </option>
+                <option value="EstrangeloAntioch">
+                  <xsl:if test="$font='EstrangeloAntioch'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Estrangelo Antioch </option>
+                <option value="EstrangeloEdessa">
+                  <xsl:if test="$font='EstrangeloEdessa'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Estrangelo Edessa </option>
+                <option value="EstrangeloMidyat">
+                  <xsl:if test="$font='EstrangeloMidyat'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Estrangelo Midyat </option>
+                <option value="EstrangeloNisibin">
+                  <xsl:if test="$font='EstrangeloNisibin'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Estrangelo Nisibin </option>
+                <option value="EstrangeloQuenneshrin">
+                  <xsl:if test="$font='EstrangeloQuenneshrin'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Estrangelo Quenneshrin </option>
+                <option value="EstrangeloTalada">
+                  <xsl:if test="$font='EstrangeloTalada'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Estrangelo Talada </option>
+                <option value="EstrangeloTurAbdin">
+                  <xsl:if test="$font='EstrangeloTurAbdin'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Estrangelo TurAbdin </option>
+                <option value="SertoBatnan">
+                  <xsl:if test="$font='SertoBatnan'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Serto Batnan </option>
+                <option value="SertoJerusalem">
+                  <xsl:if test="$font='SertoJerusalem'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Serto Jerusalem </option>
+                <option value="SertoKharput">
+                  <xsl:if test="$font='SertoKharput'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Serto Kharput </option>
+                <option value="SertoMalankara">
+                  <xsl:if test="$font='SertoMalankara'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Serto Malankara </option>
+                <option value="SertoMardin">
+                  <xsl:if test="$font='SertoMardin'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Serto Mardin </option>
+                <option value="SertoUrhoy">
+                  <xsl:if test="$font='SertoUrhoy'">
+                    <xsl:attribute name="selected">
+                      selected
+                    </xsl:attribute>
+                  </xsl:if>
+                  Serto Urhoy </option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
       <div class="w3-panel">
         <div class="w3-row">
-          To see the critical apparatus with all variants, click on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>.
+          <div class="w3-col s1 w3-padding">
+          </div>
+          <div class="w3-col s11 w3-padding"> To see the critical apparatus with all variants, click
+            on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>
+            . </div>
         </div>
       </div>
       <div class="w3-row">

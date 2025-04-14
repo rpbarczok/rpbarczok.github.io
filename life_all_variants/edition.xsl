@@ -184,6 +184,13 @@
         </div>
       </div>
       <div class="w3-row">
+        <div class="w3-col s1 w3-padding">
+        </div>
+        <div class="w3-col s11 w3-padding">
+          To see the critical apparatus with all variants, click on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>.
+        </div>
+      </div>
+      <div class="w3-row">
       
         <div class="w3-col s1 w3-padding">
         </div>
