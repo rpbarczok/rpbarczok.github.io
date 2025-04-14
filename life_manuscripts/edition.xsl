@@ -232,6 +232,10 @@
         </div>
       </div>
       <div class="w3-row">
+        To see the critical apparatus with all variants, click on the marked text passages between ˹
+        and ˺ or on *.
+      </div>
+      <div class="w3-row">
         <div class="w3-col s1 w3-padding">
         </div>
         <div class="w3-col s8 w3-card-4 w3-white w3-padding">
