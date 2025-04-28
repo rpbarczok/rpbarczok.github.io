@@ -47,12 +47,12 @@
       const target = document.getElementById("preface")
       try {
         const xmlFile = await fetch("preface-basic.xml", init = { "cache": "reload" })
-        const xmlStr = xmlFile.text()
-        const xml = await (new window.DOMParser()).parseFromString(str, "text/xml")
+        const xmlStr = await xmlFile.text()
+        const xml = (new window.DOMParser()).parseFromString(str, "text/xml")
 
         const xslFile = await fetch("edition_all_variants.xsl", init = { "cache": "reload" })
-        const xslStr = xslFile.text()
-        const xsl = await (new window.DOMParser()).parseFromString(str, "text/xml")
+        const xslStr = await xslFile.text()
+        const xsl = (new window.DOMParser()).parseFromString(str, "text/xml")
 
         // code for normal browsers
         const xsltProcessor = new XSLTProcessor()
