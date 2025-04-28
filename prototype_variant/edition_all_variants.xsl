@@ -12,11 +12,10 @@
 
   <xsl:param name="font" />
 
-  <xsl:params name="variants" select="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission')"/>
-  
-  <xsl:param name="nrwitness" select="concat('#', $witness)" />
+  <xsl:params name="variantsTest"
+    select="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission')" />
 
-  <xsl:param name="variant" select="concat('#', $witness)" />
+  <xsl:param name="nrwitness" select="concat('#', $witness)" />
 
   <xsl:param name="fontstyle"
     select="concat('text-align: justify; direction: rtl; font-size:2em; font-family:', $font, ';')" />
@@ -28,15 +27,11 @@
 
   <!-- create dynamic change when Manuscript is selected -->
   <xsl:param name="jsms"
-    select="concat('displayResult(this.value,', $apos, $font, $apos, ',',$apos, $variant, $apos, ')')" />
+    select="concat('displayResult(this.value,', $apos, $font, $apos, ')')" />
 
   <!-- create dynamic change when Font is selected -->
   <xsl:param name="jsfont"
-    select="concat('displayResult(', $apos, $witness, $apos, ',this.value', ',',$apos, $variant, $apos, ')')" />
-
-  <!-- create change when variant is selected -->
-  <xsl:param name="jsvariant"
-    select="concat('displayResult(', $apos, $witness, $apos, ',' , $apos, $font, $apos, ',this.value)')" />
+    select="concat('displayResult(', $apos, $witness, $apos, ',this.value)')" />
 
   <!-- Template 1: Gesamtdokument -->
   <xsl:template match="/">
@@ -314,6 +309,21 @@
 
   <xsl:template match="tei:app">
     <xsl:choose>
+      <xsl:when test="./tei:lem">
+        <xsl:choose>
+          <xsl:when
+            test="$variantsTest">
+            <a class="app" onclick="showApp('{generate-id()}');">
+              <xsl:apply-templates select="tei:lem" />
+            </a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="tei:lem/node()" />
+          </xsl:otherwise>
+        </xsl:choose>
+
+
+      </xsl:when>
       <xsl:when test="./tei:lem">
         <a class="app" onclick="showApp('{generate-id()}');">
           <xsl:apply-templates select="tei:lem" />
