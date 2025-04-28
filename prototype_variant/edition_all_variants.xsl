@@ -2,7 +2,9 @@
 
 <xsl:transform version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:tei="http://www.tei-c.org/ns/1.0">
+  xmlns:tei="http://www.tei-c.org/ns/1.0"
+  xmlns:exsl="http://exslt.org/common"
+  extension-element-prefixes="exsl">
 
   <xsl:output method="html" />
 
@@ -11,9 +13,6 @@
   <xsl:param name="witness" />
 
   <xsl:param name="font" />
-
-  <xsl:params name="variantsTest"
-    select="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission')" />
 
   <xsl:param name="nrwitness" select="concat('#', $witness)" />
 
@@ -25,13 +24,9 @@
 
   <xsl:param name="apos">'</xsl:param>
 
-  <!-- create dynamic change when Manuscript is selected -->
-  <xsl:param name="jsms"
-    select="concat('displayResult(this.value,', $apos, $font, $apos, ')')" />
+  <xsl:param name="jsms" select="concat('displayResult(this.value,', $apos, $font, $apos, ')')" />
 
-  <!-- create dynamic change when Font is selected -->
-  <xsl:param name="jsfont"
-    select="concat('displayResult(', $apos, $witness, $apos, ',this.value)')" />
+  <xsl:param name="jsfont" select="concat('displayResult(', $apos, $witness, $apos, ',this.value)')" />
 
   <!-- Template 1: Gesamtdokument -->
   <xsl:template match="/">
@@ -180,16 +175,9 @@
       <div class="w3-row">
         <div class="w3-col s1 w3-padding">
         </div>
-        <div class="w3-col s11 w3-padding"> Choose the variants that are included in the critical
-          apparatus:<br />
+        <div class="w3-col s11 w3-padding">
+          To see the critical apparatus with all variants, click on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>.
         </div>
-      </div>
-      <div class="w3-row">
-        <div class="w3-col s1 w3-padding">
-        </div>
-        <div class="w3-col s11 w3-padding"> To see the critical apparatus with all variants, click
-          on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>
-          . </div>
       </div>
       <div class="w3-row">
 
@@ -212,6 +200,7 @@
               <span onclick="this.parentElement.style.display='none'" class="w3-display-topright">
                 X
               </span>
+
 
               <xsl:choose>
                 <xsl:when test="./tei:rdg/tei:lacunaStart">
@@ -251,7 +240,7 @@
                     <xsl:attribute name="style">
                       <xsl:value-of select="$fontstyle2" />
                     </xsl:attribute>
-                    <xsl:apply-templates select="tei:rdg" mode="app" />
+                    <xsl:apply-templates select="tei:rdg" />
                   </span>
                 </xsl:otherwise>
               </xsl:choose>
@@ -276,6 +265,7 @@
       <xsl:apply-templates select="node()" />
     </p>
   </xsl:template>
+
 
   <!-- Template head-->
 
@@ -311,7 +301,8 @@
     <xsl:choose>
       <xsl:when test="./tei:lem">
         <xsl:choose>
-          <xsl:when test="$variantsTest">
+          <xsl:when
+            test="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission')">
             <a class="app" onclick="showApp('{generate-id()}');">
               <xsl:apply-templates select="tei:lem" />
             </a>
@@ -373,18 +364,22 @@
   </xsl:template>
 
 
-  <xsl:template match="tei:rdg" mode="app">
-    <xsl:value-of select="@wit" /> : <xsl:choose>
-      <xsl:when test="text() != ''">
-        <p style="direction: rtl;">
-          <xsl:apply-templates select="node()" />
-        </p>
-      </xsl:when>
-      <xsl:when test="./@type='nonlegible'"> [...] <br />
-      </xsl:when>
-      <xsl:otherwise> om. <br />
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="tei:rdg">
+    <xsl:if
+      test="contains(@type, 'variation') or contains(@type, 'addition') or contains(@type,'omission')">
+
+      <xsl:value-of select="@wit" /> : <xsl:choose>
+        <xsl:when test="text() != ''">
+          <p style="direction: rtl;">
+            <xsl:apply-templates select="node()" />
+          </p>
+        </xsl:when>
+        <xsl:when test="./@type='nonlegible'"> [...] <br />
+        </xsl:when>
+        <xsl:otherwise> om. <br />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:if>
   </xsl:template>
 
 </xsl:transform>
