@@ -311,8 +311,7 @@
     <xsl:choose>
       <xsl:when test="./tei:lem">
         <xsl:choose>
-          <xsl:when
-            test="$variantsTest">
+          <xsl:when test="$variantsTest">
             <a class="app" onclick="showApp('{generate-id()}');">
               <xsl:apply-templates select="tei:lem" />
             </a>
@@ -323,11 +322,6 @@
         </xsl:choose>
 
 
-      </xsl:when>
-      <xsl:when test="./tei:lem">
-        <a class="app" onclick="showApp('{generate-id()}');">
-          <xsl:apply-templates select="tei:lem" />
-        </a>
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:lacunaStart">
         <a class="app" onclick="showApp('{generate-id()}');">
