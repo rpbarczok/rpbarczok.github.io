@@ -2,16 +2,12 @@
 
 <xsl:transform version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:tei="http://www.tei-c.org/ns/1.0"
-  xmlns:exsl="http://exslt.org/common"
-  extension-element-prefixes="exsl">
+  xmlns:tei="http://www.tei-c.org/ns/1.0">
 
   <xsl:output method="html" />
 
   <!-- Variables -->
   <!-- Witness and Font: Import from JavaScript -->
-  <xsl:params name="variants" select="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission')"/>
-
   <xsl:param name="witness" />
 
   <xsl:param name="font" />
@@ -26,9 +22,17 @@
 
   <xsl:param name="apos">'</xsl:param>
 
-  <xsl:param name="jsms" select="concat('displayResult(this.value,', $apos, $font, $apos, ')')" />
+  <!-- create dynamic change when Manuscript is selected -->
+  <xsl:param name="jsms"
+    select="concat('displayResult(this.value,', $apos, $font, $apos, ',',$apos, $variant, $apos, ')')" />
 
-  <xsl:param name="jsfont" select="concat('displayResult(', $apos, $witness, $apos, ',this.value)')" />
+  <!-- create dynamic change when Font is selected -->
+  <xsl:param name="jsfont"
+    select="concat('displayResult(', $apos, $witness, $apos, ',this.value', ',',$apos, $variant, $apos, ')')" />
+
+  <!-- create dynamic change when variant is selected -->
+  <xsl:param name="jsfont"
+    select="concat('displayResult(', $apos, $witness, $apos, ',' , $apos, $font, $apos, ',this.value)')" />
 
   <!-- Template 1: Gesamtdokument -->
   <xsl:template match="/">
@@ -177,9 +181,16 @@
       <div class="w3-row">
         <div class="w3-col s1 w3-padding">
         </div>
-        <div class="w3-col s11 w3-padding">
-          To see the critical apparatus with all variants, click on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>.
+        <div class="w3-col s11 w3-padding"> Choose the variants that are included in the critical
+          apparatus:<br />
         </div>
+      </div>
+      <div class="w3-row">
+        <div class="w3-col s1 w3-padding">
+        </div>
+        <div class="w3-col s11 w3-padding"> To see the critical apparatus with all variants, click
+          on the marked text passages between <bold>˹</bold> and <bold>˺</bold> or on <bold>*</bold>
+          . </div>
       </div>
       <div class="w3-row">
 
@@ -202,7 +213,6 @@
               <span onclick="this.parentElement.style.display='none'" class="w3-display-topright">
                 X
               </span>
-
 
               <xsl:choose>
                 <xsl:when test="./tei:rdg/tei:lacunaStart">
@@ -242,7 +252,7 @@
                     <xsl:attribute name="style">
                       <xsl:value-of select="$fontstyle2" />
                     </xsl:attribute>
-                    <xsl:apply-templates select="tei:rdg" />
+                    <xsl:apply-templates select="tei:rdg" mode="app" />
                   </span>
                 </xsl:otherwise>
               </xsl:choose>
@@ -267,7 +277,6 @@
       <xsl:apply-templates select="node()" />
     </p>
   </xsl:template>
-
 
   <!-- Template head-->
 
@@ -302,19 +311,9 @@
   <xsl:template match="tei:app">
     <xsl:choose>
       <xsl:when test="./tei:lem">
-        <xsl:choose>
-          <xsl:when
-            test="variants">
-            <a class="app" onclick="showApp('{generate-id()}');">
-              <xsl:apply-templates select="tei:lem" />
-            </a>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:apply-templates select="tei:lem/node()" />
-          </xsl:otherwise>
-        </xsl:choose>
-
-
+        <a class="app" onclick="showApp('{generate-id()}');">
+          <xsl:apply-templates select="tei:lem" />
+        </a>
       </xsl:when>
       <xsl:when test="./tei:rdg/tei:lacunaStart">
         <a class="app" onclick="showApp('{generate-id()}');">
@@ -366,22 +365,18 @@
   </xsl:template>
 
 
-  <xsl:template match="tei:rdg">
-    <xsl:if
-      test="contains(@type, 'variation') or contains(@type, 'addition') or contains(@type,'omission')">
-
-      <xsl:value-of select="@wit" /> : <xsl:choose>
-        <xsl:when test="text() != ''">
-          <p style="direction: rtl;">
-            <xsl:apply-templates select="node()" />
-          </p>
-        </xsl:when>
-        <xsl:when test="./@type='nonlegible'"> [...] <br />
-        </xsl:when>
-        <xsl:otherwise> om. <br />
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:if>
+  <xsl:template match="tei:rdg" mode="app">
+    <xsl:value-of select="@wit" /> : <xsl:choose>
+      <xsl:when test="text() != ''">
+        <p style="direction: rtl;">
+          <xsl:apply-templates select="node()" />
+        </p>
+      </xsl:when>
+      <xsl:when test="./@type='nonlegible'"> [...] <br />
+      </xsl:when>
+      <xsl:otherwise> om. <br />
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
 </xsl:transform>

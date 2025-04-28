@@ -1,0 +1,41 @@
+/* standard link */
+
+
+a.app {
+    color: black;
+}
+
+a.app:hover {
+    color: black;
+}
+
+/* link within head */
+
+p.head a.app {
+    color: red;
+}
+
+p.head a.app:hover {
+    color: red;
+}
+
+/* link within em */
+span.em a {
+    color: red;
+}
+
+span.em a.app:hover {
+    color: red;
+}
+
+/* head is to be red */
+
+p.head {
+    color: red;
+}
+
+/* em is to be red */
+
+span.em {
+    color: red;
+}
