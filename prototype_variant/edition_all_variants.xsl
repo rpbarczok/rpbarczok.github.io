@@ -12,7 +12,11 @@
 
   <xsl:param name="font" />
 
+  <xsl:params name="variants" select="contains(./tei:rdg/@type, 'variation') or contains(./tei:rdg/@type, 'addition') or contains(./tei:rdg/@type, 'omission')"/>
+  
   <xsl:param name="nrwitness" select="concat('#', $witness)" />
+
+  <xsl:param name="variant" select="concat('#', $witness)" />
 
   <xsl:param name="fontstyle"
     select="concat('text-align: justify; direction: rtl; font-size:2em; font-family:', $font, ';')" />
@@ -30,8 +34,8 @@
   <xsl:param name="jsfont"
     select="concat('displayResult(', $apos, $witness, $apos, ',this.value', ',',$apos, $variant, $apos, ')')" />
 
-  <!-- create dynamic change when variant is selected -->
-  <xsl:param name="jsfont"
+  <!-- create change when variant is selected -->
+  <xsl:param name="jsvariant"
     select="concat('displayResult(', $apos, $witness, $apos, ',' , $apos, $font, $apos, ',this.value)')" />
 
   <!-- Template 1: Gesamtdokument -->
