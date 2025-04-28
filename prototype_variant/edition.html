@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Joseph Busnaya / Preface</title>
+
+  <!-- Include selfmade css stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css.css">
+
+  <!-- include Syriac fonts from Beth Mardutho-->
+  <!-- local -->
+  <link rel="stylesheet" type="text/css" href="./fonts/font-families.css">
+
+  <!-- use w3 css -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+  <!-- function for closing and opening the critical apparatus -->
+  <script>
+    function showApp(id) {
+
+      const x = document.getElementsByClassName('critapp')
+
+      for (let i = 0; i < x.length; i++) {
+        x[i].style.display = 'none';
+      }
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+
+  <!-- function to combine the XML and the XSLT data -->
+
+  <script>
+
+    async function displayResult(witness, font, variants) {
+
+      const target = document.getElementById("preface")
+
+      try {
+        const fetchedXML = await fetch("preface-basic.xml", init = { "cache": "reload" })
+        const strXML = await xmlFile.text()
+        const xml = await (new window.DOMParser()).parseFromString(strXML, "text/xml")
+
+        const fetchedXSL = await fetch(xlsFile, init = { "cache": "reload" })
+        const strXSL = await fetchedXSL.text()
+        const xsl = await (new window.DOMParser()).parseFromString(strXSL, "text/xml")
+
+        // code for normal browsers
+        const xsltProcessor = new XSLTProcessor()
+        try {
+          xsltProcessor.importStylesheet(xsl)
+        }
+        catch (err) {
+          console.log('ImportStylesheet failed')
+          throw err
+        }
+
+        xsltProcessor.setParameter(null, "witness", witness)
+        xsltProcessor.setParameter(null, "font", font)
+
+        let resultDocument
+        try {
+          resultDocument = xsltProcessor.transformToFragment(xml, target.ownerDocument)
+        }
+        catch (err) {
+          console.log('transformToFragment failed')
+          throw err
+        }
+        while (target.firstChild) {
+          target.removeChild(target.firstChild);
+        }
+        //console.log(resultDocument)
+        try {
+          target.appendChild(resultDocument)
+        }
+        catch (err) {
+          console.log('appendChild failed')
+          throw err
+        }
+      } catch (error) {
+        console.log(err)
+        target.innerHTML = "<p>Cannot retrieve requested file</p><br/><pre>" + error + "</pre>"
+      }
+    }
+  </script>
+</head>
+
+<body onload="displayResult('V1', 'EastSyriacAdiabene', 'edition_all_variants')">
+  <div id="preface"></div>
+</body>
+
+</html>
