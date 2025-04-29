@@ -45,11 +45,14 @@
   <script>
     async function displayResult(witness, font) {
       const target = document.getElementById("preface")
+      
       try {
         const xmlFile = await fetch("preface-basic.xml", init = { "cache": "reload" })
+        console.log("xmlFile: ", xmlFile)
         const xmlStr = await xmlFile.text()
-        const xml = (new window.DOMParser()).parseFromString(str, "text/xml")
-
+        console.log("xmlStr: ", xmlStr)
+        const xml = (new widow.DOMParser()).parseFromString(str, "text/xml")
+        console.log("xml: ", xml)
         const xslFile = await fetch("edition.xsl", init = { "cache": "reload" })
         const xslStr = await xslFile.text()
         const xsl = (new window.DOMParser()).parseFromString(str, "text/xml")
