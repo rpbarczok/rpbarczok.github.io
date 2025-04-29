@@ -50,7 +50,7 @@
         const xmlStr = await xmlFile.text()
         const xml = (new window.DOMParser()).parseFromString(str, "text/xml")
 
-        const xslFile = await fetch("edition_all_variants.xsl", init = { "cache": "reload" })
+        const xslFile = await fetch("edition.xsl", init = { "cache": "reload" })
         const xslStr = await xslFile.text()
         const xsl = (new window.DOMParser()).parseFromString(str, "text/xml")
 
@@ -91,7 +91,7 @@
   </script>
 </head>
 
-<body onload="displayResult('V1', 'EastSyriacAdiabene')">
+<body onload="await ('V1', 'EastSyriacAdiabene')">
   <div id="preface"></div>
 </body>
 
