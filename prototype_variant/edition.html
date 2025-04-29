@@ -43,37 +43,41 @@
 
   <!-- function to combine the XML and the XSLT data -->
   <script>
-    async function displayResult(witness, font) {
+    function displayResult(witness, font) {
       const target = document.getElementById("preface")
-      
-      try {
-        const xmlFile = await fetch("preface-basic.xml", init = { "cache": "reload" })
-        console.log("xmlFile: ", xmlFile)
-        const xmlStr = await xmlFile.text()
-        console.log("xmlStr: ", xmlStr)
-        const xml = (new widow.DOMParser()).parseFromString(str, "text/xml")
-        console.log("xml: ", xml)
-        const xslFile = await fetch("edition.xsl", init = { "cache": "reload" })
-        const xslStr = await xslFile.text()
-        const xsl = (new window.DOMParser()).parseFromString(str, "text/xml")
-
-        // code for normal browsers
-        const xsltProcessor = new XSLTProcessor()
-
-        try {
-          xsltProcessor.importStylesheet(xsl)
-        }
-        catch (err) {
-          console.log('ImportStylesheet failed')
-          throw err
-        }
-        xsltProcessor.setParameter(null, "witness", witness)
-        xsltProcessor.setParameter(null, "font", font)
-        try {
-          const resultDocument = xsltProcessor.transformToFragment(xml, target.ownerDocument)
+      const xmlFile = fetch("preface-basic.xml", init = { "cache": "reload" })
+        .then(res => res.text())
+        .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+      const xslFile = fetch("edition.xsl", init = { "cache": "reload" })
+        .then(res => res.text())
+        .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+      Promise.all([xmlFile, xslFile])
+        .then(files => {
+          xml = files[0]
+          xsl = files[1]
+          // code for normal browsers
+          var xsltProcessor = new XSLTProcessor()
+          try {
+            xsltProcessor.importStylesheet(xsl)
+          }
+          catch (err) {
+            console.log('ImportStylesheet failed')
+            throw err
+          }
+          xsltProcessor.setParameter(null, "witness", witness)
+          xsltProcessor.setParameter(null, "font", font)
+          var resultDocument
+          try {
+            resultDocument = xsltProcessor.transformToFragment(xml, target.ownerDocument)
+          }
+          catch (err) {
+            console.log('transformToFragment failed')
+            throw err
+          }
           while (target.firstChild) {
             target.removeChild(target.firstChild);
           }
+          //console.log(resultDocument)
           try {
             target.appendChild(resultDocument)
           }
@@ -81,15 +85,12 @@
             console.log('appendChild failed')
             throw err
           }
+        })
+        .catch(err => {
+          console.log(err)
+          target.innerHTML = "<p>Cannot retrieve requested file</p><br/><pre>" + err + "</pre>"
         }
-        catch (err) {
-          console.log('transformToFragment failed')
-          throw err
-        }
-      } catch (error) {
-        console.log(err)
-        target.innerHTML = "<p>Cannot retrieve requested file</p><br/><pre>" + err + "</pre>"
-      }
+        )
     }
   </script>
 </head>
